@@ -1,0 +1,104 @@
+@charset "utf-8";
+
+#tabla{
+	padding: 0.6%;
+	width: 100%;
+	text-align: center;
+	background: #FAFAFA;
+	border: 2px solid;
+	color: #585858;
+	-webkit-border-radius: 2px; 
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+#tdTitulo{
+	width: 100%;
+	padding: 0.6%;
+	text-align: center;
+}
+
+tr{
+	width: 100%;
+}
+
+#tdTexto{
+	width: 40%;
+	text-align: right;
+	padding-right: 0.3%;
+}
+
+#tdCampos{
+	width: 60%;
+	text-align: left;
+}
+
+.campos{
+	-webkit-border-radius: 1px; 
+	-moz-border-radius: 1px;
+	border-radius: 1px;
+	border: 0;
+	padding: 0.4%;
+	font-family: Calibri;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.campos:hover{
+	background-color: #F5FBEF;
+}
+
+label{
+	font-family: Calibri;
+	padding: 0.3%;
+	color: #0080FF;
+	letter-spacing: 1px;
+	text-shadow:0px 1px 0px #FAFAFA;
+}
+
+option{
+	font-family: Calibri;
+	text-transform: capitalize;
+	padding: 0.3%;
+	color: #424242;
+	letter-spacing: 1px;
+	text-shadow:0px 1px 0px #FAFAFA;
+}
+
+select{
+	font-family: Calibri;
+	text-transform: capitalize;
+	padding: 0.3%;
+	color: #424242;
+	letter-spacing: 1px;
+	text-shadow:0px 1px 0px #FAFAFA;
+}
+
+l1{
+	padding: 0.3%;
+	color: #0B2161;
+	letter-spacing: 1px;
+	text-shadow:0px 1px 0px #FAFAFA;
+	font: bold 18px Calibri, sans-serif;
+}
+
+input[type="submit"] {
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #086A87;
+	color: #fff;
+	display: block;
+	margin: 0.3% auto;
+	cursor: pointer;
+	width: 120px;
+	height: 40px;
+	border: none;
+	box-shadow:0px 0px 10px 1px  #ccc;
+	font: bold 18px Calibri, sans-serif;
+}
+input[type="submit"]:hover {
+	background-color: #0489B1;
+	box-shadow:0px 0px 15px 0px  #02BAF2;
+}
