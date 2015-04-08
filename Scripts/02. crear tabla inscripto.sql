@@ -15,8 +15,18 @@ CREATE TABLE inscripto
   telcel character varying,  
   razon_social character varying,
   titaca character varying, 
-  fechainscripto date,  
-  martes boolean default false,
-  jueves boolean default false,
-  info character varying
+  fechainscripto date,
+  info character varying,
+  actividad1 boolean,
+  actividad2 boolean,
+  actividad3 boolean,
+  actividad4 boolean,
+  actividad5 boolean,
+  actividad6 boolean,
+  actividad7 boolean,
+  actividad8 boolean,
+  actividad9 boolean,
+  actividad10 boolean,
+  actividad11 boolean,
+  actividad12 boolean
 );

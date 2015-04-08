@@ -11,11 +11,35 @@
 	-moz-border-radius: 2px;
 	border-radius: 2px;
 }
+#tabla2{
+	padding: 0.6%;
+	width: 100%;
+	text-align: center;
+	background: #FAFAFA;
+	border: 2px solid;
+	border-top: 0px;
+	color: #585858;
+	-webkit-border-radius: 2px; 
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
 
 #tdTitulo{
 	width: 100%;
 	padding: 0.6%;
 	text-align: center;
+}
+
+.tdTitulo{
+	width: 100%;
+	padding: 0.6%;
+	text-align: center;
+}
+.tdSubTitulo{
+	width: 100%;
+	padding: 0.6%;
+	text-align: center;
+	border-bottom: 2px solid;
 }
 
 tr{
@@ -31,6 +55,17 @@ tr{
 #tdCampos{
 	width: 60%;
 	text-align: left;
+}
+
+.tdTexto{
+	width: 80%;
+	text-align: right;
+	padding-right: 0.3%;
+}
+
+.tdCampos{
+	width: 20%;
+	text-align: center;
 }
 
 .campos{
@@ -82,6 +117,19 @@ l1{
 	text-shadow:0px 1px 0px #FAFAFA;
 	font: bold 18px Calibri, sans-serif;
 }
+
+l2{
+	padding: 0.3%;
+	color: #086A87;
+	letter-spacing: 1px;
+	text-shadow:0px 1px 0px #FAFAFA;
+	font: normal 18px Calibri, sans-serif;
+}
+
+l3{
+	text-decoration: underline;
+}
+
 
 input[type="submit"] {
 	-webkit-border-radius: 2px;

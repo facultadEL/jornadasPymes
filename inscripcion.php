@@ -109,12 +109,64 @@ include_once "conexion.php";
         <td id="tdCampos"><input name="titaca" type="text" class="campos" placeholder="Título de recibido" value="<?=$titaca?>" size="30" maxlength="70" required/></td>
     </tr>
     <tr>
-        <td id="tdTexto"><label>D&iacute;a de cursado:</label></td>
-        <td id="tdCampos"><input id="cualDia" type="checkbox" name="martes"/><label>Martes</label><input id="cualDia" type="checkbox" name="jueves"/><label>Jueves</label></td>
-    </tr>
-    <tr>
         <td id="tdTexto"><label>&iquest;C&oacute;mo te enteraste de las Jornadas?</label></td>
         <td id="tdCampos"><input name="info" type="text" class="campos" value="<?php echo $info?>" size="30"/></td>
+    </tr>
+</table>
+<table id="tabla2" align="center">
+    <tr>  
+        <td colspan="2" class="tdTitulo"><strong><l1>Programa de Actividades</l1></strong><br><l2>*Desmarque a las actividades que no asistir&aacute;</l2></td>
+    </tr>
+<!--     <tr>
+    	<td colspan="2" class="tdSubTitulo"><l2>Desmarque a las actividades que no asistir&aacute;</l2></td>
+    </tr> -->
+    <tr>
+        <td class="tdTexto"><label>Apertura de la Segunda Jornada para Pymes</label></td>
+        <td class="tdCampos"><input type="checkbox" name="actividad1" checked/></td>
+    </tr>
+    <tr>
+        <td class="tdTexto"><label>Escenario actual de las Pymes</label></td>
+        <td class="tdCampos"><input type="checkbox" name="actividad2" checked/></td>
+    </tr>
+    <tr>
+        <td class="tdTexto"><label><l3>Rentabilidad de las pymes:</l3> el secreto no pasa por hacer más sino hacer lo correcto</label></td>
+        <td class="tdCampos"><input type="checkbox" name="actividad3" checked/></td>
+    </tr>
+    <tr>
+        <td class="tdTexto"><label><l3>De Villa María al Mundo:</l3> Como armar una red de representantes comerciales</label></td>
+        <td class="tdCampos"><input type="checkbox" name="actividad4" checked/></td>
+    </tr>
+    <tr>
+        <td class="tdTexto"><label><l3>De la idea al negocio:</l3> Como crear las condiciones para que tu idea termine en una Pyme</label></td>
+        <td class="tdCampos"><input type="checkbox" name="actividad5" checked/></td>
+    </tr>
+    <tr>
+        <td class="tdTexto"><label>Taller Experiencias Pymes/Graduados</label></td>
+        <td class="tdCampos"><input type="checkbox" name="actividad6" checked/></td>
+    </tr>
+    <tr>
+        <td class="tdTexto"><label><l3>Crecimiento, Delegaci&oacute;n y direcci&oacute;n en la Pymes:</l3> los roles del fundador – gerente general</label></td>
+        <td class="tdCampos"><input type="checkbox" name="actividad7" checked/></td>
+    </tr>
+    <tr>
+        <td class="tdTexto"><label>Como emprender con &eacute;xito en la Argentina. Cadena de valor</label></td>
+        <td class="tdCampos"><input type="checkbox" name="actividad8" checked/></td>
+    </tr>
+    <tr>
+        <td class="tdTexto"><label>Planificación en empresas de familia</label></td>
+        <td class="tdCampos"><input type="checkbox" name="actividad9" checked/></td>
+    </tr>
+    <tr>
+        <td class="tdTexto"><label>Lanzando nuestra Pyme al mundo Digital</label></td>
+        <td class="tdCampos"><input type="checkbox" name="actividad10" checked/></td>
+    </tr>
+    <tr>
+        <td class="tdTexto"><label>Taller Programa de fortalecimiento y Cr&eacute;ditos para Pymes</label></td>
+        <td class="tdCampos"><input type="checkbox" name="actividad11" checked/></td>
+    </tr>
+    <tr>
+        <td class="tdTexto"><label>Almuerzo Libre</label></td>
+        <td class="tdCampos"><input type="checkbox" name="actividad12" checked/></td>
     </tr>
 </table>
 <table width="100%">
