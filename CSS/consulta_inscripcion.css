@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+#lista{
+	padding: 0.6%;
+	width: 100%;
+	background: #FAFAFA;
+	border: 2px solid;
+	color: #585858;
+	-webkit-border-radius: 2px; 
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+#tdTitulo{
+	width: 100%;
+	padding: 0.6%;
+	text-align: center;
+	color: #0B2161;
+	letter-spacing: 1px;
+	text-shadow:0px 1px 0px #FAFAFA;
+	font: bold 18px Calibri, sans-serif;
+}
+
+.td_titcol{
+	border: 1px solid;
+	text-align: center;
+	background-color: #086A87;
+	color: #eee;
+	padding: 0.3%;
+	letter-spacing: 1px;
+	text-shadow:0px 1px 0px #FAFAFA;
+	font: normal 18px Calibri, sans-serif;
+}
+
+l2{
+	padding: 0.3%;
+	margin-left: 2%;
+	color: #000;
+	letter-spacing: 1px;
+	font: normal 18px Calibri, sans-serif;
+}
+
+input[type="submit"] {
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #086A87;
+	color: #fff;
+	display: block;
+	margin: 0.3% auto;
+	cursor: pointer;
+	width: 120px;
+	height: 40px;
+	border: none;
+	box-shadow:0px 0px 10px 1px  #ccc;
+	font: bold 18px Calibri, sans-serif;
+}
+input[type="submit"]:hover {
+	background-color: #0489B1;
+	box-shadow:0px 0px 15px 0px  #02BAF2;
+}
+
+#btn_verincs{
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #489785;
+	color: #fff;
+	display: block;
+	cursor: pointer;
+	width: 50px;
+	height: 35px;
+	border: none;
+	box-shadow:0px 0px 10px 1px  #ccc;
+	font: bold 16px Calibri, sans-serif;
+}
+#btn_verincs:hover {
+	box-shadow: 0px 0px 15px 0px  #489785;
+	-moz-box-shadow: 0px 0px 15px 0px  #489785;
+	-webkit-box-shadow: 0px 0px 15px 0px  #489785;
+}
+
+#btn_info{
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #eee;
+	color: #000;
+	cursor: pointer;
+	width: 160px;
+	height: 40px;
+	border: none;
+	font: bold 16px Calibri, sans-serif;
+	background-image: url('../img/Stock.png');
+	background-repeat: no-repeat;
+	background-position: 12px;
+	padding-left: 40px;
+	margin-bottom: 1%;
+	margin-top: 1%;
+	-webkit-background-size: 30px 30px;           /* Safari 3.0 */
+    -moz-background-size: 30px 30px;           /* Gecko 1.9.2 (Firefox 3.6) */
+    -o-background-size: 30px 30px;           /* Opera 9.5 */
+    background-size: 30px 30px;           /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+    margin-right: 5px;
+}
+#btn_info:hover {
+	box-shadow: 0px 0px 15px 0px  #000;
+	-moz-box-shadow: 0px 0px 15px 0px  #000;
+	-webkit-box-shadow: 0px 0px 15px 0px  #000;
+}
+
+a{
+	text-decoration: none;
+}

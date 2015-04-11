@@ -133,7 +133,7 @@ $id_Inscripto = $_REQUEST['idInscripto'];
 		$telcel = ucwords($_REQUEST['telcel']);
 		$razon_social = $_REQUEST['razon_social'];
 		$titaca = $_REQUEST['titaca'];
-		$fechainscripto = date('Ymd');
+		//$fechainscripto = date('Ymd');
 		$actividad1 = $_REQUEST['actividad1'];
 		$actividad2 = $_REQUEST['actividad2'];
 		$actividad3 = $_REQUEST['actividad3'];
@@ -209,7 +209,7 @@ $id_Inscripto = $_REQUEST['idInscripto'];
 		}
 		$info = ucfirst($_REQUEST['info']);
 
-		$modifInscripto="UPDATE inscripto SET nombre='$nombre', apellido='$apellido', tipo_dni='$tipo_dni', nrodni='$nrodni', direccion='$direccion', numero='$numero',piso='$piso', dpto='$dpto', localidad='$localidad', mail='$mail', telfijo='$telfijo', telcel='$telcel', razon_social='$razon_social', titaca='$titaca', fechainscripto='$fechainscripto', info='$info', actividad1='$actividad1', actividad2='$actividad2', actividad3='$actividad3', actividad4='$actividad4', actividad5='$actividad5', actividad6='$actividad6', actividad7='$actividad7', actividad8='$actividad8', actividad9='$actividad9', actividad10='$actividad10', actividad11='$actividad11', actividad12='$actividad12' WHERE id = $id_Inscripto;";
+		$modifInscripto="UPDATE inscripto SET nombre='$nombre', apellido='$apellido', tipo_dni='$tipo_dni', nrodni='$nrodni', direccion='$direccion', numero='$numero',piso='$piso', dpto='$dpto', localidad='$localidad', mail='$mail', telfijo='$telfijo', telcel='$telcel', razon_social='$razon_social', titaca='$titaca', info='$info', actividad1='$actividad1', actividad2='$actividad2', actividad3='$actividad3', actividad4='$actividad4', actividad5='$actividad5', actividad6='$actividad6', actividad7='$actividad7', actividad8='$actividad8', actividad9='$actividad9', actividad10='$actividad10', actividad11='$actividad11', actividad12='$actividad12' WHERE id = $id_Inscripto;";
 
 			$error=0;
 

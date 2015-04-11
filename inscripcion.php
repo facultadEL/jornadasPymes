@@ -37,7 +37,7 @@ include_once "conexion.php";
 <form id="form" name="formInscripcionJornada" method="post" action="guardarIncripcionJornada.php?idInscripto=0" enctype="multipart/form-data">
 <table id="tabla" align="center">
     <tr>  
-        <td colspan="2" id="tdTitulo"><strong><l1>Inscripcion a Segundas Jornadas Nacionales para PyMEs de la UTN</l1></strong></td>
+        <td colspan="2" id="tdTitulo"><strong><l1>Inscripci&oacute;n a Segundas Jornadas Nacionales para PyMEs de la UTN</l1></strong></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>Nombre:</label></td>
