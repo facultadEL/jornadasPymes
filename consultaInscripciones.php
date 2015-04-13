@@ -20,6 +20,9 @@ include_once "libreria.php";
     	<td id="tdBtn">
     		<a href="totalInscriptos.php"><input type="button" id="btn_info" value="Total Inscriptos" title="Ver total de inscriptos de cada actividad" alt="ver"></a>
     	</td>
+    	<td id="tdBtn">
+    		<input type="search" id="txt_busqueda" value="" title="Buscar inscriptos" alt="Buscar"></a>
+    	</td>
     </tr>
 	<tr>
 		<td class="td_titcol">Inscripto</td>
