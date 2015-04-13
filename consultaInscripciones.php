@@ -21,7 +21,7 @@ include_once "libreria.php";
     		<a href="totalInscriptos.php"><input type="button" id="btn_info" value="Total Inscriptos" title="Ver total de inscriptos de cada actividad" alt="ver"></a>
     	</td>
     	<td id="tdBtn">
-    		<input type="search" id="txt_busqueda" value="" title="Buscar inscriptos" alt="Buscar"></a>
+    		<input type="search" id="txt_busqueda" value="" placeholder="Buscar inscripto" title="Buscar inscriptos" alt="Buscar"></a>
     	</td>
     </tr>
 	<tr>
