@@ -30,16 +30,63 @@ body{
 	font: bold 20px Calibri, sans-serif;
 }
 
-tr, td{
-	width: 50%;
+tr{
+	width: 100%;
 }
 
-l2{
+.texto{
+	width: 70%;
+}
+
+.textoT{
+	width: 70%;
+	text-align: right;
+	padding-right: 1%;
+}
+
+.total{
+	width: 30%;
+	text-align: center;
+}
+
+.nroTotal{
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #585858;
+	border: 3px solid #585858;
+	color: #fff;
+	height: 30px;
+	padding: 0.3%;
+	font: bold 16px Calibri, sans-serif;
+	text-align: center;
+}
+.nroTotal:hover{
+	border: 3px solid #fff;
+	box-shadow: 0px 0px 15px 0px  #000;
+	-moz-box-shadow: 0px 0px 15px 0px  #000;
+	-webkit-box-shadow: 0px 0px 15px 0px  #000;
+}
+
+label{
 	padding: 0.3%;
 	margin-left: 2%;
 	color: #0B2161;
 	letter-spacing: 1px;
 	font: normal 17px Calibri, sans-serif;
+	text-shadow:0px 1px 0px #FAFAFA;
+}
+
+l1{
+	color: #0080FF;
+	padding: 0.3%;
+	margin-left: 2%;
+	letter-spacing: 1px;
+	font: normal 17px Calibri, sans-serif;
+	text-shadow:0px 1px 0px #FAFAFA;
+}
+l3{
+	text-decoration: underline;
 }
 
 #btn_atras{
@@ -63,7 +110,7 @@ l2{
 	-webkit-box-shadow: 0px 0px 15px 0px  #DF0101;
 }
 
-#btn_editar{
+#btn_excel{
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
@@ -77,7 +124,7 @@ l2{
 	border: none;
 	font: bold 16px Calibri, sans-serif;
 }
-#btn_editar:hover {
+#btn_excel:hover {
 	box-shadow: 0px 0px 15px 0px  #04B486;
 	-moz-box-shadow: 0px 0px 15px 0px  #04B486;
 	-webkit-box-shadow: 0px 0px 15px 0px  #04B486;

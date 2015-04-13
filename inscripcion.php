@@ -33,19 +33,54 @@
 <body>
 <?php
 include_once "conexion.php";
+include_once "libreria.php";
+
+$id_Inscripto = $_REQUEST['idInscripto'];
+
+if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
+    $consultaSql = traerSqlCondicion('nombre, apellido, tipo_dni, nrodni, direccion, numero, piso, dpto, localidad, mail, telfijo, telcel, razon_social, titaca, info, actividad1, actividad2, actividad3, actividad4, actividad5, actividad6, actividad7, actividad8, actividad9, actividad10, actividad11, actividad12','inscripto','id='.$id_Inscripto);
+    $rowInscripto=pg_fetch_array($consultaSql,NULL,PGSQL_ASSOC);
+        $nombre = $rowInscripto['nombre'];
+        $apellido = $rowInscripto['apellido'];
+        $tipo_dni = $rowInscripto['tipo_dni'];
+        $nrodni = $rowInscripto['nrodni'];
+        $direccion = $rowInscripto['direccion'];
+        $numero = $rowInscripto['numero'];
+        $piso = $rowInscripto['piso'];
+        $dpto = $rowInscripto['dpto'];
+        $localidad = $rowInscripto['localidad'];
+        $mail = $rowInscripto['mail'];
+        $telfijo = $rowInscripto['telfijo'];
+        $telcel = $rowInscripto['telcel'];
+        $razon_social = $rowInscripto['razon_social'];
+        $titaca = $rowInscripto['titaca'];
+        $actividad1 = $rowInscripto['actividad1'];
+        $actividad2 = $rowInscripto['actividad2'];
+        $actividad3 = $rowInscripto['actividad3'];
+        $actividad4 = $rowInscripto['actividad4'];
+        $actividad5 = $rowInscripto['actividad5'];
+        $actividad6 = $rowInscripto['actividad6'];
+        $actividad7 = $rowInscripto['actividad7'];
+        $actividad8 = $rowInscripto['actividad8'];
+        $actividad9 = $rowInscripto['actividad9'];
+        $actividad10 = $rowInscripto['actividad10'];
+        $actividad11 = $rowInscripto['actividad11'];
+        $actividad12 = $rowInscripto['actividad12'];
+        $info = $rowInscripto['info'];
+}
 ?> 
-<form id="form" name="formInscripcionJornada" method="post" action="guardarIncripcionJornada.php?idInscripto=0" enctype="multipart/form-data">
+<form id="form" name="formInscripcionJornada" method="post" action="guardarIncripcionJornada.php?idInscripto=<?php echo $id_Inscripto;?>" enctype="multipart/form-data">
 <table id="tabla" align="center">
     <tr>  
         <td colspan="2" id="tdTitulo"><strong><l1>Inscripci&oacute;n a Segundas Jornadas Nacionales para PyMEs de la UTN</l1></strong></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>Nombre:</label></td>
-        <td id="tdCampos"><input name="nombre" type="text" class="campos" value="<?=$nombre?>" size="30" maxlength="70" required autofocus/></td>
+        <td id="tdCampos"><input name="nombre" type="text" class="campos" value="<?php echo $nombre;?>" size="30" maxlength="70" required autofocus/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>Apellido:</label></td>
-        <td id="tdCampos"><input name="apellido" type="text" class="campos" value="<?=$apellido?>" size="30" maxlength="70" required/></td>
+        <td id="tdCampos"><input name="apellido" type="text" class="campos" value="<?php echo $apellido;?>" size="30" maxlength="70" required/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>Tipo de Documento:</label></td>
@@ -53,12 +88,15 @@ include_once "conexion.php";
             <label>
                 <select size="1" class="campos" name="tipo_dni" required>
                 <?php
-                    $valores2 = pg_query("SELECT id,nombre FROM tipo_dni");                            
-                        while($row=pg_fetch_array($valores2,NULL,PGSQL_ASSOC)){
-                            $idCat = $row['id'];
-                            $idCat = '"'.$idCat.'"';
-                            echo "<option value=".$idCat."><label>".$row['nombre']."</label></option>";
+                    $traerTipoDni = traerSql('id,nombre','tipo_dni');
+                    while($rowTipo=pg_fetch_array($traerTipoDni,NULL,PGSQL_ASSOC)){
+                        $idBD = $rowTipo['id'];
+                        if ($idBD == $tipo_dni) {
+                            echo "<option value=".$idBD." selected><label>".$rowTipo['nombre']."</label></option>";
+                        }else{
+                            echo "<option value=".$idBD."><label>".$rowTipo['nombre']."</label></option>";
                         }
+                    }
                 ?>
                 </select>
             </label>
@@ -66,47 +104,48 @@ include_once "conexion.php";
     </tr>
     <tr>
         <td id="tdTexto"><label>N&deg; documento:</label></td>
-        <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onkeyup="maskDni()" onfocus="this.value = '';" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?=$nrodni?>" size="30" maxlength="10" title="Ingrese su documento correctamente." required/></td>
+        <!-- <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onkeyup="maskDni()" onfocus="this.value = '';" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?php //echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." required/></td> -->
+        <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onkeyup="maskDni()" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?php echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." required/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>Direcci&oacute;n:</label></td>
-        <td id="tdCampos"><input name="direccion" type="text" class="campos" value="<?=$direccion?>" size="30" maxlength="60" required/></td>
+        <td id="tdCampos"><input name="direccion" type="text" class="campos" value="<?php echo $direccion;?>" size="30" maxlength="60" required/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>N&uacute;mero:</label></td>
-        <td id="tdCampos"><input pattern="[0-9]{2,6}" name="numero" type="text" class="campos" value="<?=$numero?>" size="30" maxlength="60" required/></td>
+        <td id="tdCampos"><input pattern="[0-9]{2,6}" name="numero" type="text" class="campos" value="<?php echo $numero;?>" size="30" maxlength="60" required/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>Piso:</label></td>
-        <td id="tdCampos"><input name="piso" type="text" pattern="[0-9]{0,2}" class="campos" value="<?=$piso?>" size="30" maxlength="2"/></td>
+        <td id="tdCampos"><input name="piso" type="text" pattern="[0-9]{0,2}" class="campos" value="<?php echo $piso;?>" size="30" maxlength="2"/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>Dpto:</label></td>
-        <td id="tdCampos"><input name="dpto" type="text" class="campos" value="<?=$dpto?>" size="30" maxlength="3"/></td>
+        <td id="tdCampos"><input name="dpto" type="text" class="campos" value="<?php echo $dpto;?>" size="30" maxlength="3"/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>Localidad:</label></td>
-        <td id="tdCampos"><input name="localidad" type="text" class="campos" value="<?=$localidad?>" size="30" maxlength="60" required/></td>
+        <td id="tdCampos"><input name="localidad" type="text" class="campos" value="<?php echo $localidad;?>" size="30" maxlength="60" required/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>E-Mail:</label></td>
-        <td id="tdCampos"><input name="mail" type="email" class="campos" value="<?=$mail?>" size="30" maxlength="70" novalidate required/></td>
+        <td id="tdCampos"><input name="mail" type="email" class="campos" value="<?php echo $mail;?>" size="30" maxlength="70" novalidate required/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>Tel&eacute;fono Fijo:</label></td>
-        <td id="tdCampos"><input name="telfijo" pattern="[1-9]{10}" placeholder="La característica sin 0" type="text" class="campos" value="<?=$telfijo?>" size="30" maxlength="30"/></td>
+        <td id="tdCampos"><input name="telfijo" pattern="[1-9]{10}" placeholder="La característica sin 0" type="text" class="campos" value="<?php echo $telfijo;?>" size="30" maxlength="30"/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>Tel&eacute;fono Celular:</label></td>
-        <td id="tdCampos"><input name="telcel" pattern="[1-9]{1}[0-9]{9}" type="text" class="campos" placeholder="Sin 0 (cero) ni 15" value="<?=$telcel?>" size="30" maxlength="15" title="El n&uacute;mero de celular sin 0 (cero) ni 15 (quince)." required/></td>
+        <td id="tdCampos"><input name="telcel" pattern="[1-9]{1}[0-9]{9}" type="text" class="campos" placeholder="Sin 0 (cero) ni 15" value="<?php echo $telcel;?>" size="30" maxlength="15" title="El n&uacute;mero de celular sin 0 (cero) ni 15 (quince)." required/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>Raz&oacute;n Social donde trabaja:</label></td>
-        <td id="tdCampos"><input name="razon_social" type="text" class="campos" placeholder="Empresa donde trabaja" value="<?=$razon_social?>" size="30" maxlength="70" required/></td>
+        <td id="tdCampos"><input name="razon_social" type="text" class="campos" placeholder="Empresa donde trabaja" value="<?php echo $razon_social;?>" size="30" maxlength="70" required/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>T&iacute;tulo Acad&eacute;mico:</label></td>
-        <td id="tdCampos"><input name="titaca" type="text" class="campos" placeholder="Título de recibido" value="<?=$titaca?>" size="30" maxlength="70" required/></td>
+        <td id="tdCampos"><input name="titaca" type="text" class="campos" placeholder="Título de recibido" value="<?php echo $titaca;?>" size="30" maxlength="70" required/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>&iquest;C&oacute;mo te enteraste de las Jornadas?</label></td>
@@ -122,56 +161,135 @@ include_once "conexion.php";
     </tr> -->
     <tr>
         <td class="tdTexto"><label>Apertura de la Segunda Jornada para Pymes</label></td>
-        <td class="tdCampos"><input type="checkbox" name="actividad1" checked/></td>
+        <?php
+            if ($actividad1 == 't') {
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad1" checked/></td>';
+            }else{
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad1"/></td>';
+            }
+        ?>
     </tr>
     <tr>
         <td class="tdTexto"><label>Escenario actual de las Pymes</label></td>
-        <td class="tdCampos"><input type="checkbox" name="actividad2" checked/></td>
+        <?php
+            if ($actividad2 == 't') {
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad2" checked/></td>';
+            }else{
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad2"/></td>';
+            }
+        ?>
     </tr>
     <tr>
         <td class="tdTexto"><label><l3>Rentabilidad de las pymes:</l3> el secreto no pasa por hacer más sino hacer lo correcto</label></td>
-        <td class="tdCampos"><input type="checkbox" name="actividad3" checked/></td>
+        <?php
+            if ($actividad3 == 't') {
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad3" checked/></td>';
+            }else{
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad3"/></td>';
+            }
+        ?>
     </tr>
     <tr>
         <td class="tdTexto"><label><l3>De Villa María al Mundo:</l3> Como armar una red de representantes comerciales</label></td>
-        <td class="tdCampos"><input type="checkbox" name="actividad4" checked/></td>
+        <?php
+            if ($actividad4 == 't') {
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad4" checked/></td>';
+            }else{
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad4"/></td>';
+            }
+        ?>
     </tr>
     <tr>
         <td class="tdTexto"><label><l3>De la idea al negocio:</l3> Como crear las condiciones para que tu idea termine en una Pyme</label></td>
-        <td class="tdCampos"><input type="checkbox" name="actividad5" checked/></td>
+        <?php
+            if ($actividad5 == 't') {
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad5" checked/></td>';
+            }else{
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad5"/></td>';
+            }
+        ?>
     </tr>
     <tr>
         <td class="tdTexto"><label>Taller Experiencias Pymes/Graduados</label></td>
-        <td class="tdCampos"><input type="checkbox" name="actividad6" checked/></td>
+        <?php
+            if ($actividad6 == 't') {
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad6" checked/></td>';
+            }else{
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad6"/></td>';
+            }
+        ?>
     </tr>
     <tr>
         <td class="tdTexto"><label><l3>Crecimiento, Delegaci&oacute;n y direcci&oacute;n en la Pymes:</l3> los roles del fundador – gerente general</label></td>
-        <td class="tdCampos"><input type="checkbox" name="actividad7" checked/></td>
+        <?php
+            if ($actividad7 == 't') {
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad7" checked/></td>';
+            }else{
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad7"/></td>';
+            }
+        ?>
     </tr>
     <tr>
         <td class="tdTexto"><label>Como emprender con &eacute;xito en la Argentina. Cadena de valor</label></td>
-        <td class="tdCampos"><input type="checkbox" name="actividad8" checked/></td>
+        <?php
+            if ($actividad8 == 't') {
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad8" checked/></td>';
+            }else{
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad8"/></td>';
+            }
+        ?>
     </tr>
     <tr>
         <td class="tdTexto"><label>Planificación en empresas de familia</label></td>
-        <td class="tdCampos"><input type="checkbox" name="actividad9" checked/></td>
+        <?php
+            if ($actividad9 == 't') {
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad9" checked/></td>';
+            }else{
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad9"/></td>';
+            }
+        ?>
     </tr>
     <tr>
         <td class="tdTexto"><label>Lanzando nuestra Pyme al mundo Digital</label></td>
-        <td class="tdCampos"><input type="checkbox" name="actividad10" checked/></td>
+        <?php
+            if ($actividad10 == 't') {
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad10" checked/></td>';
+            }else{
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad10"/></td>';
+            }
+        ?>
     </tr>
     <tr>
         <td class="tdTexto"><label>Taller Programa de fortalecimiento y Cr&eacute;ditos para Pymes</label></td>
-        <td class="tdCampos"><input type="checkbox" name="actividad11" checked/></td>
+        <?php
+            if ($actividad11 == 't') {
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad11" checked/></td>';
+            }else{
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad11"/></td>';
+            }
+        ?>
     </tr>
     <tr>
         <td class="tdTexto"><label>Almuerzo Libre</label></td>
-        <td class="tdCampos"><input type="checkbox" name="actividad12" checked/></td>
+        <?php
+            if ($actividad12 == 't') {
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad12" checked/></td>';
+            }else{
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad12"/></td>';
+            }
+        ?>
     </tr>
 </table>
 <table width="100%">
     <tr width="100%">
-        <td width="100%" align="center"><input type="submit" name="Submit" id="Submit" value="Enviar" /></td>
+        <?php
+            if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
+                echo '<td width="50%" align="right"><a href="verInscripto.php?idInscripto='.$id_Inscripto.'"><input type="button" name="cancelar" id="btn_cancelar" value="Cancelar" /></a></td>';
+                echo '<td width="50%" align="left"><input type="submit" name="Submit" id="btn_confirmar" value="Confirmar" /></td>';
+            }else{
+                echo '<td width="100%" align="center"><input type="submit" name="Submit" id="Submit" value="Enviar" /></td>';
+            }
+        ?>
     </tr>
 </table>
 </form>

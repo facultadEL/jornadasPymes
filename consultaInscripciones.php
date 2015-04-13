@@ -18,7 +18,7 @@ include_once "libreria.php";
     </tr>
     <tr>
     	<td id="tdBtn">
-    		<a href="infoInscAct.php"><input type="button" id="btn_info" value="Total Inscriptos" title="Ver total de inscriptos de cada actividad" alt="ver"></a>
+    		<a href="totalInscriptos.php"><input type="button" id="btn_info" value="Total Inscriptos" title="Ver total de inscriptos de cada actividad" alt="ver"></a>
     	</td>
     </tr>
 	<tr>
@@ -38,7 +38,7 @@ include_once "libreria.php";
 				echo '<td><l2>'.$apellido.', '.$nombre.'</l2></td>';
 				echo '<td><l2>'.$fechainscripto.'</l2></td>';
 				//hacer un if para que diferencie los botones segun el estado del alumno --> $confirmado
-				echo '<td align="center"><a href="verInscripto.php"><input type="button" id="btn_verincs" value="Ver" title="Ver Informaci&oacute;n del inscripto" alt="ver"></a></td>';
+				echo '<td align="center"><a href="verInscripto.php?idInscripto='.$id.'"><input type="button" id="btn_verincs" value="Ver" title="Ver Informaci&oacute;n del inscripto" alt="ver"></a></td>';
 			echo '</tr>';
 		}
 	?>

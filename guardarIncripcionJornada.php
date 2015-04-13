@@ -225,7 +225,7 @@ $id_Inscripto = $_REQUEST['idInscripto'];
 		if ($error==1){
 			echo '<script language="JavaScript"> alert("Los datos no se modificaron correctamente. Pongase en contacto con el administrador");</script>';
 		}else{
-			echo '<script language="JavaScript"> alert("Los datos se actualizaron correctamente."); window.location = "inscripcion.php";</script>';
+			echo '<script language="JavaScript"> alert("Los datos se actualizaron correctamente."); window.location = "consultaInscripciones.php";</script>';
 		}
 }
 ?>

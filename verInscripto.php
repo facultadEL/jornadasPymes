@@ -11,13 +11,15 @@
 <?php
 include_once "conexion.php";
 include_once "libreria.php";
+
+$id_Inscripto = $_REQUEST['idInscripto'];
 ?>
 <table id="lista" align="center">
 	<tr>  
         <td id="tdTitulo"><strong>Informaci&oacute;n del Inscripto</strong></td>
     </tr>
 	<?php
-		$consultaSql = traerSql("i.id, i.nombre as ins_nombre, apellido, t.nombre as tid_nombre, nrodni, direccion, numero, piso, dpto, localidad, mail, telfijo, telcel, razon_social, titaca, fechainscripto, info", "inscripto i INNER JOIN tipo_dni t ON i.tipo_dni = t.id");
+		$consultaSql = traerSqlCondicion('i.id, i.nombre as ins_nombre, apellido, t.nombre as tid_nombre, nrodni, direccion, numero, piso, dpto, localidad, mail, telfijo, telcel, razon_social, titaca, fechainscripto, info, actividad1, actividad2, actividad3, actividad4, actividad5, actividad6, actividad7, actividad8, actividad9, actividad10, actividad11, actividad12', 'inscripto i INNER JOIN tipo_dni t ON i.tipo_dni = t.id', 'i.id='.$id_Inscripto);
 		$rowConsulta=pg_fetch_array($consultaSql,NULL,PGSQL_ASSOC);
 			$fecha = $rowConsulta['fechainscripto'];
 			$fechainscripto = setDate($fecha);
@@ -55,8 +57,23 @@ include_once "libreria.php";
 	<tr>
 		<td><l2>Conocimiento sobre la Jornada: </l2><?php echo $rowConsulta['info'];?></td>
 	</tr>
+<!-- 	<tr>
+		<td><l2>Actividades a la que asistir&aacute;: </l2>
+		<?php
+			//for ($i=1; $i < 13 ; $i++) { 
+			//	if ($rowConsulta['actividad'.$i] == 't') {
+			//		echo $rowConsulta['actividad'.$i];
+			//	}				
+			//}
+		?></td>
+	</tr> -->
+</table>
+<table id="btn" align="center">
 	<tr>
-		<td align="center">
+		<td align="right">
+			<?php echo '<a href="consultaInscripciones.php"><input type="button" id="btn_atras" value="Atr&aacute;s"/></a>';?>
+		</td>
+		<td align="left">
 			<?php echo '<a href="inscripcion.php?idInscripto='.$rowConsulta['id'].'"><input type="button" id="btn_editar" value="Modificar"/></a>';?>
 		</td>
 	</tr>
