@@ -10,19 +10,21 @@
 	var alumnosSeleccionados = [];
 	var alumnosDiccionario = {};
 	var separador = '/--/';
+	var palabraABuscar = '';
 
-	prevHtml = '<tr>';
-	prevHtml += '<td colspan="3" id="tdTitulo"><strong>Consulta de Inscripciones a Segundas Jornadas Nacionales para PyMEs de la UTN</strong></td>';
-	prevHtml += '</tr>';
-	prevHtml += '<tr>';
-	prevHtml += '<td id="tdBtn">';
-	prevHtml += '<a href="totalInscriptos.php"><input type="button" id="btn_info" value="Total Inscriptos" title="Ver total de inscriptos de cada actividad" alt="ver"></a>';
-	prevHtml += '</td>';
-	prevHtml += '<td id="tdBtn">';
-	prevHtml += '<input type="search" id="txt_busqueda" value="" onchange="controlBusqueda()" onKeyUp="controlBusqueda()" placeholder="Buscar inscripto" title="Buscar inscriptos" alt="Buscar"></a>';
-	prevHtml += '</td>';
-    prevHtml += '</tr>';
-    prevHtml += '<tr>';
+
+	// prevHtml = '<tr>';
+	// prevHtml += '<td colspan="3" id="tdTitulo"><strong>Consulta de Inscripciones a Segundas Jornadas Nacionales para PyMEs de la UTN</strong></td>';
+	// prevHtml += '</tr>';
+	// prevHtml += '<tr>';
+	// prevHtml += '<td id="tdBtn">';
+	// prevHtml += '<a href="totalInscriptos.php"><input type="button" id="btn_info" value="Total Inscriptos" title="Ver total de inscriptos de cada actividad" alt="ver"></a>';
+	// prevHtml += '</td>';
+	// prevHtml += '<td id="tdBtn">';
+	// prevHtml += '<input type="search" id="txt_busqueda" value="'+palabraABuscar+'" onchange="controlBusqueda()" onKeyUp="controlBusqueda()" placeholder="Buscar inscripto" title="Buscar inscriptos" alt="Buscar"></a>';
+	// prevHtml += '</td>';
+ //    prevHtml += '</tr>';
+    prevHtml = '<tr>';
 	prevHtml += '<td class="td_titcol">Inscripto</td>';
 	prevHtml += '<td class="td_titcol">Fec. Inscripci&oacute;n</td>';
 	prevHtml += '<td class="td_titcol">Consultar</td>';
@@ -45,6 +47,28 @@
 		}
 	}
 
+	function getPrevHtml()
+	{
+		var prevHtml
+		prevHtml = '<tr>';
+		prevHtml += '<td colspan="3" id="tdTitulo"><strong>Consulta de Inscripciones a Segundas Jornadas Nacionales para PyMEs de la UTN</strong></td>';
+		prevHtml += '</tr>';
+		prevHtml += '<tr>';
+		prevHtml += '<td id="tdBtn">';
+		prevHtml += '<a href="totalInscriptos.php"><input type="button" id="btn_info" value="Total Inscriptos" title="Ver total de inscriptos de cada actividad" alt="ver"></a>';
+		prevHtml += '</td>';
+		prevHtml += '<td id="tdBtn">';
+		prevHtml += '<input type="search" id="txt_busqueda" value="'+palabraABuscar+'" onchange="controlBusqueda()" onKeyUp="controlBusqueda()" placeholder="Buscar inscripto" title="Buscar inscriptos" alt="Buscar"></a>';
+		prevHtml += '</td>';
+	    prevHtml += '</tr>';
+	    prevHtml += '<tr>';
+		prevHtml += '<td class="td_titcol">Inscripto</td>';
+		prevHtml += '<td class="td_titcol">Fec. Inscripci&oacute;n</td>';
+		prevHtml += '<td class="td_titcol">Consultar</td>';
+		prevHtml += '</tr>';
+		return prevHtml;
+	}
+
 	function mostrarAlumnos(busqueda)
 	{
 		var alumnosToAdd = '';
@@ -53,6 +77,7 @@
 			//prevHtml = $('#tabla').html();		
 			$.each(alumnosDiccionario, function(key,value)
 			{
+				var vStringAlumno = value.split(separador);
 				alumnosToAdd += '<tr><td><l2>'+vStringAlumno[1]+', '+vStringAlumno[2]+'</l2></td><td><l2>'+vStringAlumno[3]+'</l2></td><td align="center"><a href="verInscripto.php?idInscripto='+vStringAlumno[0]+'"><input type="button" id="btn_verincs" value="Ver" title="Ver Informaci&oacute;n del inscripto" alt="ver"></a></td></tr>';
 			});
 		}
@@ -99,7 +124,7 @@ include_once "libreria.php";
 
 $sep = '/--/';
 $consultaSql = traerSql("id,nombre,apellido,fechainscripto", "inscripto");
-$val = pg_query($consultaSql);
+//$val = pg_query($consultaSql);
 $contador = 0;
 
 //Esto es por si vuelve desde otra pagina
@@ -107,7 +132,7 @@ $contador = 0;
 
 //$controlR = $_REQUEST['controlR'];	
 
-while($row = pg_fetch_array($val)){
+while($row = pg_fetch_array($consultaSql)){
 	$contador += 1;
 	$fecha = $row['fechainscripto'];
 	$fechainscripto = setDate($fecha);
@@ -122,7 +147,7 @@ while($row = pg_fetch_array($val)){
 //}
 
 ?>
-<table id="lista" align="center">
+<table id="lista1" align="center">
 	<tr>  
         <td colspan="3" id="tdTitulo"><strong>Consulta de Inscripciones a Segundas Jornadas Nacionales para PyMEs de la UTN</strong></td>
     </tr>
@@ -131,30 +156,11 @@ while($row = pg_fetch_array($val)){
     		<a href="totalInscriptos.php"><input type="button" id="btn_info" value="Total Inscriptos" title="Ver total de inscriptos de cada actividad" alt="ver"></a>
     	</td>
     	<td id="tdBtn">
-    		<input type="search" id="txt_busqueda" value="" placeholder="Buscar inscripto" title="Buscar inscriptos" alt="Buscar"></a>
+    		<input type="search" id="txt_busqueda" value="" onchange="controlBusqueda()" onKeyUp="controlBusqueda()" placeholder="Buscar inscripto" title="Buscar inscriptos" alt="Buscar"></a>
     	</td>
     </tr>
-	<tr>
-		<td class="td_titcol">Inscripto</td>
-		<td class="td_titcol">Fec. Inscripci&oacute;n</td>
-		<td class="td_titcol">Consultar</td>
-	</tr>
-	<?php
-		$consultaSql = traerSql("id,nombre,apellido,fechainscripto", "inscripto");
-		while($rowConsulta=pg_fetch_array($consultaSql,NULL,PGSQL_ASSOC)){
-			$id = $rowConsulta['id'];
-			$nombre = $rowConsulta['nombre'];
-			$apellido = $rowConsulta['apellido'];
-			$fecha = $rowConsulta['fechainscripto'];
-			$fechainscripto = setDate($fecha);
-			echo '<tr>';
-				echo '<td><l2>'.$apellido.', '.$nombre.'</l2></td>';
-				echo '<td><l2>'.$fechainscripto.'</l2></td>';
-				//hacer un if para que diferencie los botones segun el estado del alumno --> $confirmado
-				echo '<td align="center"><a href="verInscripto.php?idInscripto='.$id.'"><input type="button" id="btn_verincs" value="Ver" title="Ver Informaci&oacute;n del inscripto" alt="ver"></a></td>';
-			echo '</tr>';
-		}
-	?>
+</table>
+<table id="lista" align="center">
 </table>
 </body>
 </html>

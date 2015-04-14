@@ -9,6 +9,18 @@
 	-webkit-border-radius: 2px; 
 	-moz-border-radius: 2px;
 	border-radius: 2px;
+	text-transform: capitalize;
+}
+
+#lista1{
+	padding: 0.6%;
+	width: 100%;
+	background: #FAFAFA;
+	border: 2px solid;
+	color: #585858;
+	-webkit-border-radius: 2px; 
+	-moz-border-radius: 2px;
+	border-radius: 2px;
 }
 
 #tdTitulo{
