@@ -147,20 +147,22 @@ while($row = pg_fetch_array($consultaSql)){
 //}
 
 ?>
-<table id="lista1" align="center">
-	<tr>  
-        <td colspan="3" id="tdTitulo"><strong>Consulta de Inscripciones a Segundas Jornadas Nacionales para PyMEs de la UTN</strong></td>
-    </tr>
-    <tr>
-    	<td id="tdBtn">
-    		<a href="totalInscriptos.php"><input type="button" id="btn_info" value="Total Inscriptos" title="Ver total de inscriptos de cada actividad" alt="ver"></a>
-    	</td>
-    	<td id="tdBtn">
-    		<input type="search" id="txt_busqueda" value="" onchange="controlBusqueda()" onKeyUp="controlBusqueda()" placeholder="Buscar inscripto" title="Buscar inscriptos" alt="Buscar"></a>
-    	</td>
-    </tr>
-</table>
-<table id="lista" align="center">
-</table>
+<div id="lista1">
+	<table id="tabla1" align="center">
+		<tr>  
+	        <td colspan="2" id="tdTitulo"><strong>Consulta de Inscripciones a Segundas Jornadas Nacionales para PyMEs de la UTN</strong></td>
+	    </tr>
+	    <tr>
+	    	<td id="tdBtn">
+	    		<a href="totalInscriptos.php"><input type="button" id="btn_info" value="Total Inscriptos" title="Ver total de inscriptos de cada actividad" alt="ver"></a>
+	    	</td>
+	    	<td id="tdTxtBusq">
+	    		<input type="search" id="txt_busqueda" value="" onchange="controlBusqueda()" onKeyUp="controlBusqueda()" placeholder="Buscar inscripto" title="Buscar inscriptos" alt="Buscar"></a>
+	    	</td>
+	    </tr>
+	</table>
+	<table id="lista" align="center">
+	</table>
+</div>
 </body>
 </html>

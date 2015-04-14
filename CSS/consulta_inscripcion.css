@@ -1,10 +1,8 @@
 @charset "utf-8";
 
 #lista{
-	padding: 0.6%;
 	width: 100%;
 	background: #FAFAFA;
-	border: 2px solid;
 	color: #585858;
 	-webkit-border-radius: 2px; 
 	-moz-border-radius: 2px;
@@ -13,7 +11,6 @@
 }
 
 #lista1{
-	padding: 0.6%;
 	width: 100%;
 	background: #FAFAFA;
 	border: 2px solid;
@@ -21,6 +18,18 @@
 	-webkit-border-radius: 2px; 
 	-moz-border-radius: 2px;
 	border-radius: 2px;
+}
+
+#tabla1{
+	width: 100%;
+	padding: 0.3%;
+}
+#tdBtn{
+	width: 10%;
+}
+#tdTxtBusq{
+	width: 90%;
+	text-align:left;
 }
 
 #tdTitulo{

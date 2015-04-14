@@ -6,7 +6,7 @@
     Inscripci&oacute;n
 </title>
 <meta name="keywords" content="HTML5, CSS3, Javascript"/>
-<link rel="stylesheet" href="CSS/inscripcion.css">
+<link rel="stylesheet" href="css/inscripcion.css">
 <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="jquery.mask.js" type="text/javascript"></script>
 <script>
