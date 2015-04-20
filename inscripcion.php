@@ -162,120 +162,168 @@ if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
     <tr>
         <td class="tdTexto"><label>Apertura de la Segunda Jornada para Pymes</label></td>
         <?php
-            if ($actividad1 == 't') {
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad1" checked/></td>';
+            if ($id_Inscripto != NULL) {
+                if ($actividad1 == 't') {
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad1" checked/></td>';
+                }else{
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad1"/></td>';
+                }
             }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad1"/></td>';
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad1" checked/></td>';
             }
         ?>
     </tr>
     <tr>
         <td class="tdTexto"><label>Escenario actual de las Pymes</label></td>
         <?php
-            if ($actividad2 == 't') {
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad2" checked/></td>';
+            if ($id_Inscripto != NULL) {
+                if ($actividad2 == 't') {
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad2" checked/></td>';
+                }else{
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad2"/></td>';
+                }
             }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad2"/></td>';
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad2" checked/></td>';
             }
         ?>
     </tr>
     <tr>
         <td class="tdTexto"><label><l3>Rentabilidad de las pymes:</l3> el secreto no pasa por hacer más sino hacer lo correcto</label></td>
         <?php
-            if ($actividad3 == 't') {
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad3" checked/></td>';
+            if ($id_Inscripto != NULL) {
+                if ($actividad3 == 't') {
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad3" checked/></td>';
+                }else{
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad3"/></td>';
+                }
             }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad3"/></td>';
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad3" checked/></td>';
             }
         ?>
     </tr>
     <tr>
         <td class="tdTexto"><label><l3>De Villa María al Mundo:</l3> Como armar una red de representantes comerciales</label></td>
         <?php
-            if ($actividad4 == 't') {
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad4" checked/></td>';
+            if ($id_Inscripto != NULL) {
+                if ($actividad4 == 't') {
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad4" checked/></td>';
+                }else{
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad4"/></td>';
+                }
             }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad4"/></td>';
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad4" checked/></td>';
             }
         ?>
     </tr>
     <tr>
         <td class="tdTexto"><label><l3>De la idea al negocio:</l3> Como crear las condiciones para que tu idea termine en una Pyme</label></td>
         <?php
-            if ($actividad5 == 't') {
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad5" checked/></td>';
+            if ($id_Inscripto != NULL) {
+                if ($actividad5 == 't') {
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad5" checked/></td>';
+                }else{
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad5"/></td>';
+                }
             }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad5"/></td>';
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad5" checked/></td>';
             }
         ?>
     </tr>
     <tr>
         <td class="tdTexto"><label>Taller Experiencias Pymes/Graduados</label></td>
         <?php
-            if ($actividad6 == 't') {
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad6" checked/></td>';
+            if ($id_Inscripto != NULL) {
+                if ($actividad6 == 't') {
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad6" checked/></td>';
+                }else{
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad6"/></td>';
+                }
             }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad6"/></td>';
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad6" checked/></td>';
             }
         ?>
     </tr>
     <tr>
         <td class="tdTexto"><label><l3>Crecimiento, Delegaci&oacute;n y direcci&oacute;n en la Pymes:</l3> los roles del fundador – gerente general</label></td>
         <?php
-            if ($actividad7 == 't') {
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad7" checked/></td>';
+            if ($id_Inscripto != NULL) {
+                if ($actividad7 == 't') {
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad7" checked/></td>';
+                }else{
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad7"/></td>';
+                }
             }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad7"/></td>';
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad7" checked/></td>';
             }
         ?>
     </tr>
     <tr>
         <td class="tdTexto"><label>Como emprender con &eacute;xito en la Argentina. Cadena de valor</label></td>
         <?php
-            if ($actividad8 == 't') {
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad8" checked/></td>';
+            if ($id_Inscripto != NULL) {
+                if ($actividad8 == 't') {
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad8" checked/></td>';
+                }else{
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad8"/></td>';
+                }
             }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad8"/></td>';
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad8" checked/></td>';
             }
         ?>
     </tr>
     <tr>
         <td class="tdTexto"><label>Planificación en empresas de familia</label></td>
         <?php
-            if ($actividad9 == 't') {
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad9" checked/></td>';
+            if ($id_Inscripto != NULL) {
+                if ($actividad9 == 't') {
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad9" checked/></td>';
+                }else{
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad9"/></td>';
+                }
             }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad9"/></td>';
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad9" checked/></td>';
             }
         ?>
     </tr>
     <tr>
         <td class="tdTexto"><label>Lanzando nuestra Pyme al mundo Digital</label></td>
         <?php
-            if ($actividad10 == 't') {
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad10" checked/></td>';
+            if ($id_Inscripto != NULL) {
+                if ($actividad10 == 't') {
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad10" checked/></td>';
+                }else{
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad10"/></td>';
+                }
             }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad10"/></td>';
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad10" checked/></td>';
             }
         ?>
     </tr>
     <tr>
         <td class="tdTexto"><label>Taller Programa de fortalecimiento y Cr&eacute;ditos para Pymes</label></td>
         <?php
-            if ($actividad11 == 't') {
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad11" checked/></td>';
+            if ($id_Inscripto != NULL) {
+                if ($actividad11 == 't') {
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad11" checked/></td>';
+                }else{
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad11"/></td>';
+                }
             }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad11"/></td>';
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad11" checked/></td>';
             }
         ?>
     </tr>
     <tr>
         <td class="tdTexto"><label>Almuerzo Libre</label></td>
         <?php
-            if ($actividad12 == 't') {
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad12" checked/></td>';
+            if ($id_Inscripto != NULL) {
+                if ($actividad12 == 't') {
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad12" checked/></td>';
+                }else{
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad12"/></td>';
+                }
             }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad12"/></td>';
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad12" checked/></td>';
             }
         ?>
     </tr>
