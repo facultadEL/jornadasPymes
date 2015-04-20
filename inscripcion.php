@@ -13,6 +13,7 @@
 
     function maskDni()
     {
+    	var mascara;
         valDni = $('#nrodni').val();
         switch(valDni.length)
         {
@@ -24,8 +25,13 @@
             case 10:
                 mascara = "00.000.000";
                 break;
+            default:
+            	mascara = null;
         }
-        $('#nrodni').mask(mascara);
+        if(mascara != null)
+        {
+        	$('#nrodni').mask(mascara);
+        }
     }
 
 </script>
