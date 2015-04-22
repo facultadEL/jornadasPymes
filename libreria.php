@@ -136,54 +136,52 @@ function loadFileToServer($placeToLoad) {
 // }
 
 
-//require ("PHPMailer_5.2.1/class.phpmailer.php");
+require ("PHPMailer_5.2.1/class.phpmailer.php");
 
 // $sendFrom = dirección remitente
 // $from_name = nombre remitente
 // $to = dirección a donde enviamos
 
-// function enviarMail($c,$a,$sendFrom,$from_name,$to){
+function enviarMail($cuerpo,$asunto,$sendFrom,$from_name,$to){
         
-//     $cuerpo = $c;
-//     $asunto = $a;
-//     $mail = new PHPMailer();
-//     $mail->IsSMTP();
-//     $mail->SMTPAuth = true;
-//     $mail->SMTPSecure = "ssl"; 
-//     $mail->Host = "smtp.gmail.com"; // dirección del servidor
-//     $mail->Username = "extensionfrvm@gmail.com"; // Usuario //VA OTRO MAIL, HAY QUE CREAR UN GMAIL CREO.
+    $mail = new PHPMailer();
+    $mail->IsSMTP();
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = "ssl"; 
+    $mail->Host = "smtp.gmail.com"; // dirección del servidor
+    $mail->Username = "extensionfrvm@gmail.com"; // Usuario //VA OTRO MAIL, HAY QUE CREAR UN GMAIL CREO.
 
-//     $mail->Password = "4537500frvm"; // Contraseña
+    $mail->Password = "4537500frvm"; // Contraseña
 
-//     $mail->Port = 465; // Puerto a utilizar
-//     $mail->From = $sendFrom; // dirección remitente
-//     $mail->FromName = $from_name; // nombre remitente
+    $mail->Port = 465; // Puerto a utilizar
+    $mail->From = $sendFrom; // dirección remitente
+    $mail->FromName = $from_name; // nombre remitente
 
-//     $mail->AddAddress($to, ''); // Esta es la dirección a donde enviamos
+    $mail->AddAddress($to, ''); // Esta es la dirección a donde enviamos
 
-//     //$mail->AddCC("cuenta@dominio.com"); // Copia
-//     //$mail->AddBCC("cuenta@dominio.com"); // Copia oculta
-//     $mail->IsHTML(true); // El correo se envía como HTML
-//     $mail->Subject = $asunto; // Asunto
-//     $mail->Body = $cuerpo; // Mensaje a enviar
-//     //$mail->AltBody = "Hola mundo. Esta es la primer línean Acá continuo el mensaje"; // cuerpo alternativo del mensaje
-//     //$mail->AddAttachment("imagenes/imagen.jpg", "imagen.jpg");
-//     $exito = $mail->Send(); // Envía el correo.
+    //$mail->AddCC("cuenta@dominio.com"); // Copia
+    //$mail->AddBCC("cuenta@dominio.com"); // Copia oculta
+    $mail->IsHTML(true); // El correo se envía como HTML
+    $mail->Subject = $asunto; // Asunto
+    $mail->Body = $cuerpo; // Mensaje a enviar
+    //$mail->AltBody = "Hola mundo. Esta es la primer línean Acá continuo el mensaje"; // cuerpo alternativo del mensaje
+    //$mail->AddAttachment("imagenes/imagen.jpg", "imagen.jpg");
+    $exito = $mail->Send(); // Envía el correo.
     
 
 
-// //
-// //if($exito){
-// //	echo '<script language="JavaScript"> 
-// //		alert("Verifique su casilla de correo, le hemos enviado un mail.");
-// //		location ="enviarMail.php";
-// //		</script>';	
-// //}else{
-// //	echo '<script language="JavaScript"> 
-// //		alert("No se puedo enviar el correo, comuniquese con el administrador");
-// //		location ="enviarMail.php";
-// //		</script>';
-// //}
+//
+//if($exito){
+//	echo '<script language="JavaScript"> 
+//		alert("Verifique su casilla de correo, le hemos enviado un mail.");
+//		location ="enviarMail.php";
+//		</script>';	
+//}else{
+//	echo '<script language="JavaScript"> 
+//		alert("No se puedo enviar el correo, comuniquese con el administrador");
+//		location ="enviarMail.php";
+//		</script>';
+//}
 
-//     }
+    }
     

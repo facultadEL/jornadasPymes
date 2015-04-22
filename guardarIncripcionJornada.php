@@ -5,23 +5,16 @@
 <body>
 <?php
 include_once "conexion.php";
+include_once "libreria.php";
 
 $id_Inscripto = $_REQUEST['idInscripto'];
 	if ($id_Inscripto == 0){
 		$nombre = ucwords($_REQUEST['nombre']);
 		$apellido = ucwords($_REQUEST['apellido']);
-		$tipo_dni = $_REQUEST['tipo_dni'];
 		$nrodni = $_REQUEST['nrodni'];
-		$direccion = ucwords($_REQUEST['direccion']);
-		$numero = $_REQUEST['numero'];
-		$piso = $_REQUEST['piso'];
-		$dpto = $_REQUEST['dpto'];
 		$localidad = ucwords($_REQUEST['localidad']);
 		$mail = $_REQUEST['mail'];
-		$telfijo = $_REQUEST['telfijo'];
-		$telcel = ucwords($_REQUEST['telcel']);
-		$razon_social = $_REQUEST['razon_social'];
-		$titaca = $_REQUEST['titaca'];
+		$telfijo = (empty($_REQUEST['telfijo'])) ? '' : $_REQUEST['telfijo'];
 		$fechainscripto = date('Ymd');
 		$actividad1 = $_REQUEST['actividad1'];
 		$actividad2 = $_REQUEST['actividad2'];
@@ -96,44 +89,44 @@ $id_Inscripto = $_REQUEST['idInscripto'];
 		}else{
 			$actividad12 = 'FALSE';
 		}
-		$info = ucfirst($_REQUEST['info']);
 
-		$newInscripto="INSERT INTO inscripto(nombre, apellido, tipo_dni, nrodni, direccion, numero, piso, dpto, localidad, mail, telfijo, telcel, razon_social, titaca, fechainscripto, info, actividad1, actividad2, actividad3, actividad4, actividad5, actividad6, actividad7, actividad8, actividad9, actividad10, actividad11, actividad12)VALUES('$nombre','$apellido','$tipo_dni','$nrodni','$direccion','$numero','$piso','$dpto','$localidad','$mail','$telfijo','$telcel','$razon_social','$titaca','$fechainscripto','$info','$actividad1','$actividad2','$actividad3','$actividad4','$actividad5','$actividad6','$actividad7','$actividad8','$actividad9','$actividad10','$actividad11','$actividad12');";
-			$error=0;
-			if (!pg_query($conn, $newInscripto)){
-				$errorpg = pg_last_error($conn);
-				$termino = "ROLLBACK";
-				$error=1;
-			}else{
-				$termino = "COMMIT";
-			}
-		   pg_query($termino);
+		$traerId = traerId('inscripto');
+		$cuerpo = "
+        <div align='left'>
+            <div align='left'>
+                <strong>Inscripci&oacute;n a Segundas Jornadas Nacionales para PyMEs de la UTN</strong><br/><br/>
 
+                Para completar el registro a la Jornada por favor complete el formulario de inscripci&oacute;n accediendo al siguiente link: <br/><br />
+                
+                Haga click aqu&iacute; para acceder, <a href=".'"http://extension.frvm.utn.edu.ar/Jornada/inscripcion2.php?idInscripto='.$traerId.'" target="_blank"'.">Acceder</a>.<br /><br />
+                <br />
+            </div>
+        </div>
+        ";
+        $asunto = "Para completar el registro a la Jornada";
+        $sendFrom = "extension@frvm.utn.edu.ar";
+        $from_name = "Segundas Jornadas Pymes";
+        $to = $mail;
+
+		$newInscripto="INSERT INTO inscripto(nombre, apellido, nrodni, localidad, mail, telfijo, fechainscripto, actividad1, actividad2, actividad3, actividad4, actividad5, actividad6, actividad7, actividad8, actividad9, actividad10, actividad11, actividad12, tipo_dni)VALUES('$nombre','$apellido','$nrodni','$localidad','$mail','$telfijo','$fechainscripto','$actividad1','$actividad2','$actividad3','$actividad4','$actividad5','$actividad6','$actividad7','$actividad8','$actividad9','$actividad10','$actividad11','$actividad12',1);";
+		$error = guardarSql($newInscripto);
 				
 		if ($error==1){
 			echo '<script language="JavaScript"> 	alert("Los datos no se guardaron correctamente. Pongase en contacto con el administrador");</script>';
 			//echo $errorpg;
 		}else{
-			echo '<script language="JavaScript"> alert("Los datos se guardaron correctamente."); window.location = "inscripcion.php";</script>';
+			enviarMail($cuerpo,$asunto,$sendFrom,$from_name,$to);
+			echo '<script language="JavaScript"> alert("Verifique su casilla de mail, le enviamos un correo."); window.location = "inscripcion.php";</script>';
 		}
 	}else{
 		//aca va el update
 
 		$nombre = ucwords($_REQUEST['nombre']);
 		$apellido = ucwords($_REQUEST['apellido']);
-		$tipo_dni = $_REQUEST['tipo_dni'];
 		$nrodni = $_REQUEST['nrodni'];
-		$direccion = ucwords($_REQUEST['direccion']);
-		$numero = $_REQUEST['numero'];
-		$piso = $_REQUEST['piso'];
-		$dpto = $_REQUEST['dpto'];
 		$localidad = ucwords($_REQUEST['localidad']);
 		$mail = $_REQUEST['mail'];
 		$telfijo = $_REQUEST['telfijo'];
-		$telcel = ucwords($_REQUEST['telcel']);
-		$razon_social = $_REQUEST['razon_social'];
-		$titaca = $_REQUEST['titaca'];
-		//$fechainscripto = date('Ymd');
 		$actividad1 = $_REQUEST['actividad1'];
 		$actividad2 = $_REQUEST['actividad2'];
 		$actividad3 = $_REQUEST['actividad3'];
@@ -207,9 +200,8 @@ $id_Inscripto = $_REQUEST['idInscripto'];
 		}else{
 			$actividad12 = 'FALSE';
 		}
-		$info = ucfirst($_REQUEST['info']);
 
-		$modifInscripto="UPDATE inscripto SET nombre='$nombre', apellido='$apellido', tipo_dni='$tipo_dni', nrodni='$nrodni', direccion='$direccion', numero='$numero',piso='$piso', dpto='$dpto', localidad='$localidad', mail='$mail', telfijo='$telfijo', telcel='$telcel', razon_social='$razon_social', titaca='$titaca', info='$info', actividad1='$actividad1', actividad2='$actividad2', actividad3='$actividad3', actividad4='$actividad4', actividad5='$actividad5', actividad6='$actividad6', actividad7='$actividad7', actividad8='$actividad8', actividad9='$actividad9', actividad10='$actividad10', actividad11='$actividad11', actividad12='$actividad12' WHERE id = $id_Inscripto;";
+		$modifInscripto="UPDATE inscripto SET nombre='$nombre', apellido='$apellido', nrodni='$nrodni', localidad='$localidad', mail='$mail', telfijo='$telfijo', actividad1='$actividad1', actividad2='$actividad2', actividad3='$actividad3', actividad4='$actividad4', actividad5='$actividad5', actividad6='$actividad6', actividad7='$actividad7', actividad8='$actividad8', actividad9='$actividad9', actividad10='$actividad10', actividad11='$actividad11', actividad12='$actividad12' WHERE id = $id_Inscripto;";
 
 			$error=0;
 

@@ -48,18 +48,10 @@ if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
     $rowInscripto=pg_fetch_array($consultaSql,NULL,PGSQL_ASSOC);
         $nombre = $rowInscripto['nombre'];
         $apellido = $rowInscripto['apellido'];
-        $tipo_dni = $rowInscripto['tipo_dni'];
         $nrodni = $rowInscripto['nrodni'];
-        $direccion = $rowInscripto['direccion'];
-        $numero = $rowInscripto['numero'];
-        $piso = $rowInscripto['piso'];
-        $dpto = $rowInscripto['dpto'];
         $localidad = $rowInscripto['localidad'];
         $mail = $rowInscripto['mail'];
-        $telfijo = $rowInscripto['telfijo'];
-        $telcel = $rowInscripto['telcel'];
-        $razon_social = $rowInscripto['razon_social'];
-        $titaca = $rowInscripto['titaca'];
+        $tel = $rowInscripto['telfijo'];
         $actividad1 = $rowInscripto['actividad1'];
         $actividad2 = $rowInscripto['actividad2'];
         $actividad3 = $rowInscripto['actividad3'];
@@ -72,93 +64,38 @@ if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
         $actividad10 = $rowInscripto['actividad10'];
         $actividad11 = $rowInscripto['actividad11'];
         $actividad12 = $rowInscripto['actividad12'];
-        $info = $rowInscripto['info'];
 }
 ?> 
 <form id="form" name="formInscripcionJornada" method="post" action="guardarIncripcionJornada.php?idInscripto=<?php echo $id_Inscripto;?>" enctype="multipart/form-data">
-<table id="tabla" align="center">
+<div id="tablaGral">
+<table id="tabla">
     <tr>  
-        <td colspan="2" id="tdTitulo"><strong><l1>Inscripci&oacute;n a Segundas Jornadas Nacionales para PyMEs de la UTN</l1></strong></td>
+        <td colspan="4" id="tdTitulo"><strong><l1>Inscripci&oacute;n a Segundas Jornadas Nacionales para PyMEs de la UTN</l1></strong></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>Nombre:</label></td>
-        <td id="tdCampos"><input name="nombre" type="text" class="campos" value="<?php echo $nombre;?>" size="30" maxlength="70" required autofocus/></td>
-    </tr>
-    <tr>
+        <td id="tdCampos"><input name="nombre" type="text" class="campos" value="<?php echo $nombre;?>" maxlength="70" required autofocus/></td>
+    
         <td id="tdTexto"><label>Apellido:</label></td>
-        <td id="tdCampos"><input name="apellido" type="text" class="campos" value="<?php echo $apellido;?>" size="30" maxlength="70" required/></td>
-    </tr>
-    <tr>
-        <td id="tdTexto"><label>Tipo de Documento:</label></td>
-        <td id="tdCampos">
-            <label>
-                <select size="1" class="campos" name="tipo_dni" required>
-                <?php
-                    $traerTipoDni = traerSql('id,nombre','tipo_dni');
-                    while($rowTipo=pg_fetch_array($traerTipoDni,NULL,PGSQL_ASSOC)){
-                        $idBD = $rowTipo['id'];
-                        if ($idBD == $tipo_dni) {
-                            echo "<option value=".$idBD." selected><label>".$rowTipo['nombre']."</label></option>";
-                        }else{
-                            echo "<option value=".$idBD."><label>".$rowTipo['nombre']."</label></option>";
-                        }
-                    }
-                ?>
-                </select>
-            </label>
-        </td>
+        <td id="tdCampos"><input name="apellido" type="text" class="campos" value="<?php echo $apellido;?>" maxlength="70" required/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>N&deg; documento:</label></td>
         <!-- <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onkeyup="maskDni()" onfocus="this.value = '';" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?php //echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." required/></td> -->
         <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onkeyup="maskDni()" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?php echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." required/></td>
-    </tr>
-    <tr>
-        <td id="tdTexto"><label>Direcci&oacute;n:</label></td>
-        <td id="tdCampos"><input name="direccion" type="text" class="campos" value="<?php echo $direccion;?>" size="30" maxlength="60" required/></td>
-    </tr>
-    <tr>
-        <td id="tdTexto"><label>N&uacute;mero:</label></td>
-        <td id="tdCampos"><input pattern="[0-9]{2,6}" name="numero" type="text" class="campos" value="<?php echo $numero;?>" size="30" maxlength="60" required/></td>
-    </tr>
-    <tr>
-        <td id="tdTexto"><label>Piso:</label></td>
-        <td id="tdCampos"><input name="piso" type="text" pattern="[0-9]{0,2}" class="campos" value="<?php echo $piso;?>" size="30" maxlength="2"/></td>
-    </tr>
-    <tr>
-        <td id="tdTexto"><label>Dpto:</label></td>
-        <td id="tdCampos"><input name="dpto" type="text" class="campos" value="<?php echo $dpto;?>" size="30" maxlength="3"/></td>
-    </tr>
-    <tr>
+    
         <td id="tdTexto"><label>Localidad:</label></td>
         <td id="tdCampos"><input name="localidad" type="text" class="campos" value="<?php echo $localidad;?>" size="30" maxlength="60" required/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>E-Mail:</label></td>
         <td id="tdCampos"><input name="mail" type="email" class="campos" value="<?php echo $mail;?>" size="30" maxlength="70" novalidate required/></td>
-    </tr>
-    <tr>
-        <td id="tdTexto"><label>Tel&eacute;fono Fijo:</label></td>
-        <td id="tdCampos"><input name="telfijo" pattern="[1-9]{10}" placeholder="La característica sin 0" type="text" class="campos" value="<?php echo $telfijo;?>" size="30" maxlength="30"/></td>
-    </tr>
-    <tr>
-        <td id="tdTexto"><label>Tel&eacute;fono Celular:</label></td>
-        <td id="tdCampos"><input name="telcel" pattern="[1-9]{1}[0-9]{9}" type="text" class="campos" placeholder="Sin 0 (cero) ni 15" value="<?php echo $telcel;?>" size="30" maxlength="15" title="El n&uacute;mero de celular sin 0 (cero) ni 15 (quince)." required/></td>
-    </tr>
-    <tr>
-        <td id="tdTexto"><label>Raz&oacute;n Social donde trabaja:</label></td>
-        <td id="tdCampos"><input name="razon_social" type="text" class="campos" placeholder="Empresa donde trabaja" value="<?php echo $razon_social;?>" size="30" maxlength="70" required/></td>
-    </tr>
-    <tr>
-        <td id="tdTexto"><label>T&iacute;tulo Acad&eacute;mico:</label></td>
-        <td id="tdCampos"><input name="titaca" type="text" class="campos" placeholder="Título de recibido" value="<?php echo $titaca;?>" size="30" maxlength="70" required/></td>
-    </tr>
-    <tr>
-        <td id="tdTexto"><label>&iquest;C&oacute;mo te enteraste de las Jornadas?</label></td>
-        <td id="tdCampos"><input name="info" type="text" class="campos" value="<?php echo $info?>" size="30"/></td>
+    
+        <td id="tdTexto"><label>Tel&eacute;fono:</label></td>
+        <td id="tdCampos"><input name="telfijo" pattern="[0-9]{30}" type="text" class="campos" value="<?php echo $telfijo;?>" size="30" maxlength="30"/></td>
     </tr>
 </table>
-<table id="tabla2" align="center">
+<table id="tabla2">
     <tr>  
         <td colspan="2" class="tdTitulo"><strong><l1>Programa de Actividades</l1></strong><br><l2>*Desmarque a las actividades que no asistir&aacute;</l2></td>
     </tr>
@@ -334,6 +271,7 @@ if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
         ?>
     </tr>
 </table>
+</div>
 <table width="100%">
     <tr width="100%">
         <?php

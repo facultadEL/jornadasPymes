@@ -74,7 +74,7 @@ $id_Inscripto = $_REQUEST['idInscripto'];
 			<?php echo '<a href="consultaInscripciones.php"><input type="button" id="btn_atras" value="Atr&aacute;s"/></a>';?>
 		</td>
 		<td align="left">
-			<?php echo '<a href="inscripcion.php?idInscripto='.$rowConsulta['id'].'"><input type="button" id="btn_editar" value="Modificar"/></a>';?>
+			<?php echo '<a href="inscripcionGral.php?idInscripto='.$rowConsulta['id'].'"><input type="button" id="btn_editar" value="Modificar "/></a>';?>
 		</td>
 	</tr>
 </table>
