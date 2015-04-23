@@ -98,14 +98,14 @@ $id_Inscripto = $_REQUEST['idInscripto'];
             <div align='left'>
                 <strong>Inscripci&oacute;n a Segundas Jornadas Nacionales para PyMEs de la UTN</strong><br/><br/>
 
-                Para completar el registro a la Jornada por favor complete el formulario de inscripci&oacute;n accediendo al siguiente link: <br/><br />
+                Su registro a sido completado con éxito.<br/><br />
                 
-                Haga click aqu&iacute; para acceder, <a href=".'"http://extension.frvm.utn.edu.ar/Jornada/inscripcion2.php?idInscripto='.$traerId.'" target="_blank"'.">Acceder</a>.<br /><br />
+                Muchas Gracias.
                 <br />
             </div>
         </div>
         ";
-        $asunto = "Para completar el registro a la Jornada";
+        $asunto = "Jornadas PyMEs";
         $sendFrom = "extension@frvm.utn.edu.ar";
         $from_name = "Segundas Jornadas Pymes";
         $to = $mail;
