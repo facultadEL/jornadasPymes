@@ -98,7 +98,7 @@ $id_Inscripto = $_REQUEST['idInscripto'];
             <div align='left'>
                 <strong>Inscripci&oacute;n a Segundas Jornadas Nacionales para PyMEs de la UTN</strong><br/><br/>
 
-                Su registro a sido completado con éxito.<br/><br />
+                Su registro ha sido completado con &eacute;xito.<br/><br />
                 
                 Muchas Gracias.
                 <br />
