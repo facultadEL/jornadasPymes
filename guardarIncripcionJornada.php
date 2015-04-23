@@ -26,8 +26,10 @@ $id_Inscripto = $_REQUEST['idInscripto'];
 		$actividad8 = $_REQUEST['actividad8'];
 		$actividad9 = $_REQUEST['actividad9'];
 		$actividad10 = $_REQUEST['actividad10'];
-		$actividad11 = $_REQUEST['actividad11'];
-		$actividad12 = $_REQUEST['actividad12'];
+		//$actividad11 = $_REQUEST['actividad11'];
+		//$actividad12 = $_REQUEST['actividad12'];
+		$actividad11 = off;
+		$actividad12 = off;
 
 		if ($actividad1 == on) {
 			$actividad1 = 'TRUE';
@@ -137,8 +139,10 @@ $id_Inscripto = $_REQUEST['idInscripto'];
 		$actividad8 = $_REQUEST['actividad8'];
 		$actividad9 = $_REQUEST['actividad9'];
 		$actividad10 = $_REQUEST['actividad10'];
-		$actividad11 = $_REQUEST['actividad11'];
-		$actividad12 = $_REQUEST['actividad12'];
+		//$actividad11 = $_REQUEST['actividad11'];
+		//$actividad12 = $_REQUEST['actividad12'];
+		$actividad11 = off;
+		$actividad12 = off;
 
 		if ($actividad1 == on) {
 			$actividad1 = 'TRUE';
