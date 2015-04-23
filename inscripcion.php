@@ -103,7 +103,7 @@ if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
     	<td colspan="2" class="tdSubTitulo"><l2>Desmarque a las actividades que no asistir&aacute;</l2></td>
     </tr> -->
     <tr>
-        <td class="tdTexto"><label>Apertura de la Segunda Jornada para Pymes</label></td>
+        <td class="tdTexto"><label>Escenario actual de las Pymes</label></td>
         <?php
             if ($id_Inscripto != NULL) {
                 if ($actividad1 == 't') {
@@ -117,7 +117,7 @@ if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
         ?>
     </tr>
     <tr>
-        <td class="tdTexto"><label>Escenario actual de las Pymes</label></td>
+        <td class="tdTexto"><label><l3>Rentabilidad de las pymes:</l3> el secreto no pasa por hacer más sino hacer lo correcto</label></td>
         <?php
             if ($id_Inscripto != NULL) {
                 if ($actividad2 == 't') {
@@ -131,7 +131,7 @@ if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
         ?>
     </tr>
     <tr>
-        <td class="tdTexto"><label><l3>Rentabilidad de las pymes:</l3> el secreto no pasa por hacer más sino hacer lo correcto</label></td>
+        <td class="tdTexto"><label>Taller Experiencias Casos Exitosos UTN</label></td>
         <?php
             if ($id_Inscripto != NULL) {
                 if ($actividad3 == 't') {
@@ -173,7 +173,7 @@ if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
         ?>
     </tr>
     <tr>
-        <td class="tdTexto"><label>Taller Experiencias Pymes/Graduados</label></td>
+        <td class="tdTexto"><label><l3>Crecimiento, Delegaci&oacute;n y direcci&oacute;n en las Pymes:</l3> Los roles del Fundador - Gerente General</label></td>
         <?php
             if ($id_Inscripto != NULL) {
                 if ($actividad6 == 't') {
@@ -187,7 +187,7 @@ if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
         ?>
     </tr>
     <tr>
-        <td class="tdTexto"><label><l3>Crecimiento, Delegaci&oacute;n y direcci&oacute;n en la Pymes:</l3> los roles del fundador – gerente general</label></td>
+        <td class="tdTexto"><label><l3>Como emprender con &eacute;xito en la Argentina. Cadena de valor</label></td>
         <?php
             if ($id_Inscripto != NULL) {
                 if ($actividad7 == 't') {
@@ -201,7 +201,7 @@ if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
         ?>
     </tr>
     <tr>
-        <td class="tdTexto"><label>Como emprender con &eacute;xito en la Argentina. Cadena de valor</label></td>
+        <td class="tdTexto"><label>Taller Programa de Financiamiento y Creditos para Pymes</label></td>
         <?php
             if ($id_Inscripto != NULL) {
                 if ($actividad8 == 't') {
@@ -239,34 +239,6 @@ if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
                 }
             }else{
                 echo '<td class="tdCampos"><input type="checkbox" name="actividad10" checked/></td>';
-            }
-        ?>
-    </tr>
-    <tr>
-        <td class="tdTexto"><label>Taller Programa de fortalecimiento y Cr&eacute;ditos para Pymes</label></td>
-        <?php
-            if ($id_Inscripto != NULL) {
-                if ($actividad11 == 't') {
-                    echo '<td class="tdCampos"><input type="checkbox" name="actividad11" checked/></td>';
-                }else{
-                    echo '<td class="tdCampos"><input type="checkbox" name="actividad11"/></td>';
-                }
-            }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad11" checked/></td>';
-            }
-        ?>
-    </tr>
-    <tr>
-        <td class="tdTexto"><label>Almuerzo Libre</label></td>
-        <?php
-            if ($id_Inscripto != NULL) {
-                if ($actividad12 == 't') {
-                    echo '<td class="tdCampos"><input type="checkbox" name="actividad12" checked/></td>';
-                }else{
-                    echo '<td class="tdCampos"><input type="checkbox" name="actividad12"/></td>';
-                }
-            }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad12" checked/></td>';
             }
         ?>
     </tr>
