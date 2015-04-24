@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+    Inscripci&oacute;n
+</title>
+<meta name="keywords" content="HTML5, CSS3, Javascript"/>
+<link rel="stylesheet" href="css/inscripcion.css">
+<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="jquery.mask.js" type="text/javascript"></script>
+<script>
+
+    function maskDni()
+    {
+    	var mascara;
+        valDni = $('#nrodni').val();
+        switch(valDni.length)
+        {
+            case 7:
+            case 9:
+                mascara = "0.000.000";
+                break;
+            case 8:
+            case 10:
+                mascara = "00.000.000";
+                break;
+            default:
+            	mascara = null;
+        }
+        if(mascara != null)
+        {
+        	$('#nrodni').mask(mascara);
+        }
+    }
+
+</script>
+</head>
+<body>
+<form id="form" name="formInscripcionJornada" method="post" action="guardarIncripcionJornada.php?idInscripto=0" enctype="multipart/form-data">
+<div id="tablaGral">
+<table id="tabla">
+    <tr>  
+        <td colspan="4" id="tdTitulo"><strong><l1>Inscripci&oacute;n a Segundas Jornadas Nacionales para PyMEs de la UTN</l1></strong></td>
+    </tr>
+    <tr>
+        <td id="tdTexto"><label>Nombre:</label></td>
+        <td id="tdCampos"><input name="nombre" type="text" class="campos" value="" maxlength="70" required autofocus/></td>
+    
+        <td id="tdTexto"><label>Apellido:</label></td>
+        <td id="tdCampos"><input name="apellido" type="text" class="campos" value="" maxlength="70" required/></td>
+    </tr>
+    <tr>
+        <td id="tdTexto"><label>N&deg; documento:</label></td>
+        <!-- <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onkeyup="maskDni()" onfocus="this.value = '';" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?php //echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." required/></td> -->
+        <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onkeyup="maskDni()" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="" size="30" maxlength="10" title="Ingrese su documento correctamente." required/></td>
+    
+        <td id="tdTexto"><label>Localidad:</label></td>
+        <td id="tdCampos"><input name="localidad" type="text" class="campos" value="" size="30" maxlength="60" required/></td>
+    </tr>
+    <tr>
+        <td id="tdTexto"><label>E-Mail:</label></td>
+        <td id="tdCampos"><input name="mail" type="email" class="campos" value="" size="30" maxlength="70" novalidate required/></td>
+    
+        <td id="tdTexto"><label>Tel&eacute;fono:</label></td>
+        <td id="tdCampos"><input name="telfijo" pattern="[0-9]{6,15}" type="text" class="campos" value="" size="30" maxlength="15"/></td>
+    </tr>
+</table>
+</div>
+</form>
+</body>
+</html>
