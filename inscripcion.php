@@ -7,9 +7,10 @@
 </title>
 <meta name="keywords" content="HTML5, CSS3, Javascript"/>
 <link rel="stylesheet" href="css/inscripcion.css">
-<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type='text/javascript' src="jquery.min-1.9.1.js"></script>
 <script src="jquery.mask.js" type="text/javascript"></script>
 <script>
+	var dniDictionary = [];
 
     function maskDni()
     {
@@ -34,6 +35,22 @@
         }
     }
 
+    function setDNI(dniToSet)
+		{
+			dniDictionary.push(dniToSet);
+		}
+
+		function checkDNI()
+		{
+			var dni_buscar = $('#nrodni').val();
+			if($.inArray(dni_buscar, dniDictionary) != -1)
+			{
+				alert("Usted ya se encuentra registrado");
+				$('#nrodni').val("");
+				$('#nrodni').focus();
+			}
+		}
+
 </script>
 </head>
 <body>
@@ -44,7 +61,7 @@ include_once "libreria.php";
 $id_Inscripto = $_REQUEST['idInscripto'];
 
 if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
-    $consultaSql = traerSqlCondicion('nombre, apellido, tipo_dni, nrodni, direccion, numero, piso, dpto, localidad, mail, telfijo, telcel, razon_social, titaca, info, actividad1, actividad2, actividad3, actividad4, actividad5, actividad6, actividad7, actividad8, actividad9, actividad10, actividad11, actividad12','inscripto','id='.$id_Inscripto);
+    $consultaSql = traerSqlCondicion('nombre, apellido, nrodni, localidad, mail, telfijo, actividad1, actividad2, actividad3, actividad4, actividad5, actividad6, actividad7, actividad8, actividad9, actividad10, actividad11, actividad12','inscripto','id='.$id_Inscripto);
     $rowInscripto=pg_fetch_array($consultaSql,NULL,PGSQL_ASSOC);
         $nombre = $rowInscripto['nombre'];
         $apellido = $rowInscripto['apellido'];
@@ -65,6 +82,11 @@ if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
         $actividad11 = $rowInscripto['actividad11'];
         $actividad12 = $rowInscripto['actividad12'];
 }
+
+$verificarDNI=pg_query("SELECT nrodni FROM inscripto;");
+	while($rowVerifDNI=pg_fetch_array($verificarDNI,NULL,PGSQL_ASSOC)){
+		echo "<script>setDNI('".$rowVerifDNI['nrodni']."')</script>";
+	}
 ?> 
 <form id="form" name="formInscripcionJornada" method="post" action="guardarIncripcionJornada.php?idInscripto=<?php echo $id_Inscripto;?>" enctype="multipart/form-data">
 <div id="tablaGral">
@@ -82,7 +104,7 @@ if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
     <tr>
         <td id="tdTexto"><label>N&deg; documento:</label></td>
         <!-- <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onkeyup="maskDni()" onfocus="this.value = '';" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?php //echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." required/></td> -->
-        <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onkeyup="maskDni()" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?php echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." required/></td>
+        <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onkeyup="maskDni()" onchange="checkDNI();" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?php echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." autocomplete="off" required/></td>
     
         <td id="tdTexto"><label>Localidad:</label></td>
         <td id="tdCampos"><input name="localidad" type="text" class="campos" value="<?php echo $localidad;?>" size="30" maxlength="60" required/></td>
