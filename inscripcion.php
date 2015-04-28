@@ -114,7 +114,7 @@ $verificarDNI=pg_query("SELECT nrodni FROM inscripto;");
         <td id="tdCampos"><input name="mail" type="email" class="campos" value="<?php echo $mail;?>" size="30" maxlength="70" novalidate required/></td>
     
         <td id="tdTexto"><label>Tel&eacute;fono:</label></td>
-        <td id="tdCampos"><input name="telfijo" pattern="[0-9]{6,15}" type="text" class="campos" value="<?php echo $telfijo;?>" size="30" maxlength="15"/></td>
+        <td id="tdCampos"><input name="telfijo" pattern="[0-9]{6,15}" type="text" class="campos" value="<?php echo $telfijo;?>" size="30" maxlength="15" required/></td>
     </tr>
 </table>
 <table id="tabla2">
