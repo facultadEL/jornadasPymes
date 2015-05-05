@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Envio de Mail</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<!--Siempre va el jquery, por que lo saca de ahi al ajax-->
+	<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type='text/javascript' src="js/jquery.timer.js"></script>
+	<script>
+
+	var finTimer = false;
+
+	function sendMail()
+	{
+		var timer = $.timer(function()
+		{
+			/*
+			var parametros = {
+                "inicio" : inicio,
+                "fin" : fin,
+        	};
+        	*/
+
+			$.ajax({
+				type: "POST",
+				url: "SendMailProcess.php", //Este es el archivo al que tiene que ir a buscar los datos
+				success:  function (response) { //Funcion que ejecuta si todo pasa bien. El response es los datos que manda el otro archivo
+						if(parseInt(response) == 0)
+							finTimer=true;
+
+                        $("#result").append(response);
+                },
+				error: function (msg) {
+					alert("No se pudieron enviar los mails");
+				}
+			});
+			if(finTimer == true)
+			{
+				timer.stop();
+				$("#result").append("Termino");
+			}
+
+		},20000,true);
+	}
+
+	$(document).ready(sendMail);
+
+	</script>
+</head>
+<body>
+<div id="result"></div>
+</body>
+</html>

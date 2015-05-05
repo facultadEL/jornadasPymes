@@ -96,12 +96,20 @@ $id_Inscripto = $_REQUEST['idInscripto'];
 		$cuerpo = "
         <div align='left'>
             <div align='left'>
-                <strong>Inscripci&oacute;n a Segundas Jornadas Nacionales para PyMEs de la UTN</strong><br/><br/>
+            ¡Hola <strong>".$nombre."</strong>!<br/><br/>
+			
+			Te has inscripto correctamente a las Jornadas para PyMEs de la UTN, que se llevarán a cabo los días miércoles 3 y jueves 4 de junio de 2015 a partir de las 14:00 hs. 
+			en la UTN de Villa María.<br/><br/>
 
-                Su registro ha sido completado con &eacute;xito.<br/><br />
-                
-                Muchas Gracias.
-                <br />
+			Te invitamos a conocer la agenda del evento y todos los detalles en <a>www.jornadaspymesutn.com.ar</a> <br/><br/>
+
+			Recuerda asistir con tu DNI para que podamos entregarte tú certificado.<br/>
+			También te recomendamos llevar tarjetas de presentación para sacar el máximo provecho de esta oportunidad única para ponerte en contacto con otros emprendedores y empresarios.<br/><br/>
+
+			* Por favor, en caso de no poder asistir, notifícanos con tiempo a <a>info@jornadaspymesutn.com.ar</a><br/><br/>
+
+			<strong>¡Te esperamos!</strong>
+
             </div>
         </div>
         ";

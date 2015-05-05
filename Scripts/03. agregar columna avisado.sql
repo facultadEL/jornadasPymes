@@ -1,0 +1,1 @@
+ALTER TABLE inscripto ADD COLUMN avisado boolean DEFAULT FALSE
