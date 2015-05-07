@@ -98,7 +98,7 @@ $id_Inscripto = $_REQUEST['idInscripto'];
             <div align='left'>
             ¡Hola <strong>".$nombre."</strong>!<br/><br/>
 			
-			Te has inscripto correctamente a las Jornadas para PyMEs de la UTN, que se llevarán a cabo los días miércoles 3 y jueves 4 de junio de 2015 a partir de las 14:00 hs. 
+			<strong>Te has inscripto correctamente a las Jornadas para PyMEs de la UTN</strong>, que se llevarán a cabo los días miércoles 3 y jueves 4 de junio de 2015 a partir de las 14:00 hs. 
 			en la UTN de Villa María.<br/><br/>
 
 			Te invitamos a conocer la agenda del evento y todos los detalles en <a>www.jornadaspymesutn.com.ar</a> <br/><br/>
