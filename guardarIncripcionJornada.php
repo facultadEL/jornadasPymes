@@ -92,41 +92,51 @@ $id_Inscripto = $_REQUEST['idInscripto'];
 			$actividad12 = 'FALSE';
 		}
 
-		$traerId = traerId('inscripto');
-		$cuerpo = "
-        <div align='left'>
-            <div align='left'>
-            ¡Hola <strong>".$nombre."</strong>!<br/><br/>
-			
-			<strong>Te has inscripto correctamente a las Jornadas para PyMEs de la UTN</strong>, que se llevarán a cabo los días miércoles 3 y jueves 4 de junio de 2015 a partir de las 14:00 hs. 
-			en la UTN de Villa María.<br/><br/>
+		$condicion = "nrodni='".$nrodni."'";
+		$rowControlDNI = pg_fetch_array(traerSqlCondicion('count(id) AS "contar"','inscripto',$condicion));
+		if($rowControlDNI['contar']==0)
+		{
 
-			Te invitamos a conocer la agenda del evento y todos los detalles en <a href=".'"www.jornadaspymesutn.com.ar"'.">www.jornadaspymesutn.com.ar</a> <br/><br/>
-
-			Recuerda asistir con tu DNI para que podamos entregarte tú certificado.<br/>
-			También te recomendamos llevar tarjetas de presentación para sacar el máximo provecho de esta oportunidad única para ponerte en contacto con otros emprendedores y empresarios.<br/><br/>
-
-			* Por favor, en caso de no poder asistir, notifícanos con tiempo a <a href=".'"mailto:info@jornadaspymesutn.com.ar" target="_top"'.">info@jornadaspymesutn.com.ar</a><br/><br/>
-
-			<strong>¡Te esperamos!</strong>
-
-            </div>
-        </div>
-        ";
-        $asunto = "Jornadas PyMEs";
-        $sendFrom = "extension@frvm.utn.edu.ar";
-        $from_name = "Segundas Jornadas Pymes";
-        $to = $mail;
-
-		$newInscripto="INSERT INTO inscripto(nombre, apellido, nrodni, localidad, mail, telfijo, fechainscripto, actividad1, actividad2, actividad3, actividad4, actividad5, actividad6, actividad7, actividad8, actividad9, actividad10, actividad11, actividad12, tipo_dni)VALUES('$nombre','$apellido','$nrodni','$localidad','$mail','$telfijo','$fechainscripto','$actividad1','$actividad2','$actividad3','$actividad4','$actividad5','$actividad6','$actividad7','$actividad8','$actividad9','$actividad10','$actividad11','$actividad12',1);";
-		$error = guardarSql($newInscripto);
+			$traerId = traerId('inscripto');
+			$cuerpo = "
+	        <div align='left'>
+	            <div align='left'>
+	            ¡Hola <strong>".$nombre."</strong>!<br/><br/>
 				
-		if ($error==1){
-			echo '<script language="JavaScript"> 	alert("Los datos no se guardaron correctamente. Pongase en contacto con el administrador");</script>';
-			//echo $errorpg;
-		}else{
-			enviarMail($cuerpo,$asunto,$sendFrom,$from_name,$to);
-			echo '<script language="JavaScript"> alert("Verifique su casilla de mail, le enviamos un correo."); window.location = "inscripcion.php";</script>';
+				<strong>Te has inscripto correctamente a las Jornadas para PyMEs de la UTN</strong>, que se llevarán a cabo los días miércoles 3 y jueves 4 de junio de 2015 a partir de las 14:00 hs. 
+				en la UTN de Villa María.<br/><br/>
+
+				Te invitamos a conocer la agenda del evento y todos los detalles en <a href=".'"www.jornadaspymesutn.com.ar"'.">www.jornadaspymesutn.com.ar</a> <br/><br/>
+
+				Recuerda asistir con tu DNI para que podamos entregarte tú certificado.<br/>
+				También te recomendamos llevar tarjetas de presentación para sacar el máximo provecho de esta oportunidad única para ponerte en contacto con otros emprendedores y empresarios.<br/><br/>
+
+				* Por favor, en caso de no poder asistir, notifícanos con tiempo a <a href=".'"mailto:info@jornadaspymesutn.com.ar" target="_top"'.">info@jornadaspymesutn.com.ar</a><br/><br/>
+
+				<strong>¡Te esperamos!</strong>
+
+	            </div>
+	        </div>
+	        ";
+	        $asunto = "Jornadas PyMEs";
+	        $sendFrom = "extension@frvm.utn.edu.ar";
+	        $from_name = "Segundas Jornadas Pymes";
+	        $to = $mail;
+
+			$newInscripto="INSERT INTO inscripto(nombre, apellido, nrodni, localidad, mail, telfijo, fechainscripto, actividad1, actividad2, actividad3, actividad4, actividad5, actividad6, actividad7, actividad8, actividad9, actividad10, actividad11, actividad12, tipo_dni)VALUES('$nombre','$apellido','$nrodni','$localidad','$mail','$telfijo','$fechainscripto','$actividad1','$actividad2','$actividad3','$actividad4','$actividad5','$actividad6','$actividad7','$actividad8','$actividad9','$actividad10','$actividad11','$actividad12',1);";
+			$error = guardarSql($newInscripto);
+					
+			if ($error==1){
+				echo '<script language="JavaScript"> 	alert("Los datos no se guardaron correctamente. Pongase en contacto con el administrador");</script>';
+				//echo $errorpg;
+			}else{
+				enviarMail($cuerpo,$asunto,$sendFrom,$from_name,$to);
+				echo '<script language="JavaScript"> alert("Verifique su casilla de mail, le enviamos un correo."); window.location = "inscripcion.php";</script>';
+			}
+		}
+		else
+		{
+			echo '<script language="JavaScript"> window.location = "http://www.jornadaspymesutn.com.ar";</script>';
 		}
 	}else{
 		//aca va el update
