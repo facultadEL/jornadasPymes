@@ -11,7 +11,9 @@
 <script src="jquery.mask.js" type="text/javascript"></script>
 <script>
 	var dniDictionary = [];
+	var mailDictionary = [];
 
+/*
     function maskDni()
     {
     	var mascara;
@@ -34,23 +36,54 @@
         	$('#nrodni').mask(mascara);
         }
     }
+*/
 
     function setDNI(dniToSet)
-		{
-			dniDictionary.push(dniToSet);
-		}
+	{
+		dniDictionary.push(dniToSet);
+	}
 
-		function checkDNI()
+	function checkDNI()
+	{
+		var dni_buscar = $('#nrodni').val();
+		if($.inArray(dni_buscar, dniDictionary) != -1)
 		{
-			var dni_buscar = $('#nrodni').val();
-			if($.inArray(dni_buscar, dniDictionary) != -1)
-			{
-				alert("Usted ya se encuentra registrado");
-				$('#nrodni').val("");
-				$('#nrodni').focus();
-			}
+			alert("Usted ya se encuentra registrado");
+			$('#nrodni').val("");
+			$('#nrodni').focus();
 		}
+	}
 
+	function setMail(mailToSet)
+	{
+		mailDictionary.push(mailToSet);
+	}
+
+	function checkMail()
+	{
+		var mail_buscar = $('#mail').val();
+		if($.inArray(mail_buscar,mailDictionary) != -1)
+		{
+			alert("Este mail ya se encuentra registrado");
+			$('#mail').val("");
+			$('#mail').focus();
+		}
+	}
+
+	function vaciarCampos()
+	{
+		$('#nombre').val('');
+		$('#apellido').val('');
+		$('#nrodni').val('');
+		$('#telefono').val('');
+		$('#localidad').val('');
+		$('#mail').val('');
+	}
+
+	$(document).ready(function()
+	{
+		vaciarCampos();
+	});
 </script>
 </head>
 <body>
@@ -63,6 +96,7 @@ $id_Inscripto = $_REQUEST['idInscripto'];
 if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
     $consultaSql = traerSqlCondicion('nombre, apellido, nrodni, localidad, mail, telfijo, actividad1, actividad2, actividad3, actividad4, actividad5, actividad6, actividad7, actividad8, actividad9, actividad10, actividad11, actividad12','inscripto','id='.$id_Inscripto);
     $rowInscripto=pg_fetch_array($consultaSql,NULL,PGSQL_ASSOC);
+    
         $nombre = $rowInscripto['nombre'];
         $apellido = $rowInscripto['apellido'];
         $nrodni = $rowInscripto['nrodni'];
@@ -83,9 +117,9 @@ if ($id_Inscripto != 0 || $id_Inscripto != NULL) {
         $actividad12 = $rowInscripto['actividad12'];
 }
 
-$verificarDNI=pg_query("SELECT nrodni FROM inscripto;");
+$verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
 	while($rowVerifDNI=pg_fetch_array($verificarDNI,NULL,PGSQL_ASSOC)){
-		echo "<script>setDNI('".$rowVerifDNI['nrodni']."')</script>";
+		echo "<script>setMail('".$rowVerifDNI['mail']."');setDNI('".$rowVerifDNI['nrodni']."')</script>";
 	}
 ?> 
 <form id="form" name="formInscripcionJornada" method="post" action="guardarIncripcionJornada.php?idInscripto=<?php echo $id_Inscripto;?>" enctype="multipart/form-data">
@@ -96,10 +130,10 @@ $verificarDNI=pg_query("SELECT nrodni FROM inscripto;");
     </tr>
     <tr>
         <td id="tdTexto"><label>Nombre:</label></td>
-        <td id="tdCampos"><input name="nombre" type="text" class="campos" value="<?php echo $nombre;?>" maxlength="70" required autofocus/></td>
+        <td id="tdCampos"><input name="nombre" id="nombre" type="text" class="campos" value="<?php echo $nombre;?>" maxlength="70" required autofocus/></td>
     
         <td id="tdTexto"><label>Apellido:</label></td>
-        <td id="tdCampos"><input name="apellido" type="text" class="campos" value="<?php echo $apellido;?>" maxlength="70" required/></td>
+        <td id="tdCampos"><input name="apellido" id="apellido" type="text" class="campos" value="<?php echo $apellido;?>" maxlength="70" required/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>N&deg; documento:</label></td>
@@ -107,14 +141,14 @@ $verificarDNI=pg_query("SELECT nrodni FROM inscripto;");
         <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onkeyup="maskDni()" onchange="checkDNI();" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?php echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." autocomplete="off" required/></td>
     
         <td id="tdTexto"><label>Localidad:</label></td>
-        <td id="tdCampos"><input name="localidad" type="text" class="campos" value="<?php echo $localidad;?>" size="30" maxlength="60" required/></td>
+        <td id="tdCampos"><input name="localidad" type="text" id="localidad" class="campos" value="<?php echo $localidad;?>" size="30" maxlength="60" required/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>E-Mail:</label></td>
-        <td id="tdCampos"><input name="mail" type="email" class="campos" value="<?php echo $mail;?>" size="30" maxlength="70" novalidate required/></td>
+        <td id="tdCampos"><input name="mail" id="mail" type="email" class="campos" value="<?php echo $mail;?>" size="30" maxlength="70" onchange="checkMail();" novalidate required/></td>
     
         <td id="tdTexto"><label>Tel&eacute;fono:</label></td>
-        <td id="tdCampos"><input name="telfijo" pattern="[0-9]{6,15}" type="text" class="campos" value="<?php echo $telfijo;?>" size="30" maxlength="15" required/></td>
+        <td id="tdCampos"><input name="telfijo" pattern="[0-9]{6,15}" id="telefono" type="text" class="campos" value="<?php echo $telfijo;?>" size="30" maxlength="15" required/></td>
     </tr>
 </table>
 <table id="tabla2">
