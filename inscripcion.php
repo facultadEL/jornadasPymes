@@ -46,11 +46,35 @@
 	function checkDNI()
 	{
 		var dni_buscar = $('#nrodni').val();
+
+		sinPuntos = false;
+		do
+		{
+			posPunto = dni_buscar.indexOf('.');
+			if(posPunto != -1)
+			{
+				var vPunto = dni_buscar.split('.');
+				dni_buscar = '';
+				for(var i=0;i<vPunto.length;i++)
+				{
+					dni_buscar += vPunto[i]; 
+				}
+			}
+			else
+			{
+				sinPuntos = true;
+			}
+		}while(sinPuntos==false);
+
 		if($.inArray(dni_buscar, dniDictionary) != -1)
 		{
 			alert("Usted ya se encuentra registrado");
 			$('#nrodni').val("");
 			$('#nrodni').focus();
+		}
+		else
+		{
+			$('#nrodni').val(dni_buscar);
 		}
 	}
 
@@ -138,7 +162,7 @@ $verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
     <tr>
         <td id="tdTexto"><label>N&deg; documento:</label></td>
         <!-- <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onkeyup="maskDni()" onfocus="this.value = '';" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?php //echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." required/></td> -->
-        <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onkeyup="maskDni()" onchange="checkDNI();" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?php echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." autocomplete="off" required/></td>
+        <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onchange="checkDNI();" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?php echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." autocomplete="off" required/></td>
     
         <td id="tdTexto"><label>Localidad:</label></td>
         <td id="tdCampos"><input name="localidad" type="text" id="localidad" class="campos" value="<?php echo $localidad;?>" size="30" maxlength="60" required/></td>
