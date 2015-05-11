@@ -46,7 +46,9 @@
 	function checkDNI()
 	{
 		var dni_buscar = $('#nrodni').val();
-
+        if(dni_buscar == '')
+            return
+        
 		sinPuntos = false;
 		do
 		{
@@ -162,7 +164,7 @@ $verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
     <tr>
         <td id="tdTexto"><label>N&deg; documento:</label></td>
         <!-- <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onkeyup="maskDni()" onfocus="this.value = '';" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?php //echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." required/></td> -->
-        <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onchange="checkDNI();" pattern="[0-9]{1,2}+[.]{1}[0-9]{3}+[.]{1}[0-9]{3}" class="campos" value="<?php echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." autocomplete="off" required/></td>
+        <td id="tdCampos"><input type="text" name="nrodni" id="nrodni" onchange="checkDNI();" pattern="([0-9]{1}|[0-9]{2})[0-9]{3}[0-9]{3}" class="campos" value="<?php echo $nrodni;?>" size="30" maxlength="10" title="Ingrese su documento correctamente." autocomplete="off" required/></td>
     
         <td id="tdTexto"><label>Localidad:</label></td>
         <td id="tdCampos"><input name="localidad" type="text" id="localidad" class="campos" value="<?php echo $localidad;?>" size="30" maxlength="60" required/></td>
