@@ -9,11 +9,11 @@ include_once "libreria.php";
 
 $id_Inscripto = $_REQUEST['idInscripto'];
 	if ($id_Inscripto == 0){
-		$nombre = ucwords($_REQUEST['nombre']);
-		$apellido = ucwords($_REQUEST['apellido']);
+		$nombre = ucwords(strtolower($_REQUEST['nombre']));
+		$apellido = ucwords(strtolower($_REQUEST['apellido']));
 		$nrodni = $_REQUEST['nrodni'];
-		$localidad = ucwords($_REQUEST['localidad']);
-		$mail = $_REQUEST['mail'];
+		$localidad = ucwords(strtolower($_REQUEST['localidad']));
+		$mail = strtolower($_REQUEST['mail']);
 		$telfijo = (empty($_REQUEST['telfijo'])) ? '' : $_REQUEST['telfijo'];
 		$fechainscripto = date('Ymd');
 		$actividad1 = $_REQUEST['actividad1'];
