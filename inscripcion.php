@@ -156,10 +156,10 @@ $verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
     </tr>
     <tr>
         <td id="tdTexto"><label>Nombre:</label></td>
-        <td id="tdCampos"><input name="nombre" id="nombre" type="text" class="campos" value="<?php echo $nombre;?>" maxlength="70" required autofocus/></td>
+        <td id="tdCampos"><input name="nombre" id="nombre" type="text" class="campos" value="<?php echo $nombre;?>" maxlength="70" title="Ingrese su nombre" required autofocus/></td>
     
         <td id="tdTexto"><label>Apellido:</label></td>
-        <td id="tdCampos"><input name="apellido" id="apellido" type="text" class="campos" value="<?php echo $apellido;?>" maxlength="70" required/></td>
+        <td id="tdCampos"><input name="apellido" id="apellido" type="text" class="campos" value="<?php echo $apellido;?>" maxlength="70" title="Ingrese su apellido" required/></td>
     </tr>
     <tr>
         <td id="tdTexto"><label>N&deg; documento:</label></td>
@@ -174,7 +174,7 @@ $verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
         <td id="tdCampos"><input name="mail" id="mail" type="email" class="campos" value="<?php echo $mail;?>" size="30" maxlength="70" onchange="checkMail();" novalidate required/></td>
     
         <td id="tdTexto"><label>Tel&eacute;fono:</label></td>
-        <td id="tdCampos"><input name="telfijo" pattern="[0-9]{6,15}" id="telefono" type="text" placeholder="Sin el 0 y sin el 15" class="campos" value="<?php echo $telfijo;?>" size="30" maxlength="15" required/></td>
+        <td id="tdCampos"><input name="telfijo" pattern="[0-9]{6,15}" id="telefono" type="text" placeholder="Sin el 0 y sin el 15" class="campos" value="<?php echo $telfijo;?>" size="30" maxlength="15" title="El tel&eacute;fono debe estar sin 0 y sin 15" required/></td>
     </tr>
 </table>
 <table id="tabla2">
