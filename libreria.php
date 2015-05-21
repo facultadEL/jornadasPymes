@@ -168,7 +168,7 @@ function enviarMail($cuerpo,$asunto,$sendFrom,$from_name,$to){
     $exito = $mail->Send(); // Envía el correo.
     
 
-
+    return $exito;
 //
 //if($exito){
 //	echo '<script language="JavaScript"> 

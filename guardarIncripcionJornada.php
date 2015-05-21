@@ -130,7 +130,12 @@ $id_Inscripto = $_REQUEST['idInscripto'];
 				echo '<script language="JavaScript"> 	alert("Los datos no se guardaron correctamente. Pongase en contacto con el administrador");</script>';
 				//echo $errorpg;
 			}else{
-				enviarMail($cuerpo,$asunto,$sendFrom,$from_name,$to);
+				$exit = false;
+				do
+				{
+					$exit = enviarMail($cuerpo,$asunto,$sendFrom,$from_name,$to);
+				}while($exit==false);
+				
 				echo '<script language="JavaScript"> alert("Verifique su casilla de mail, le enviamos un correo."); window.location = "inscripcion.php";</script>';
 			}
 		}
