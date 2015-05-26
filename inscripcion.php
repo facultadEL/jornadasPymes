@@ -254,17 +254,17 @@ $verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
             }
         ?>
     </tr>
-    <tr>
-        <td class="tdTexto"><label><l3>Crecimiento, Delegaci&oacute;n y direcci&oacute;n en las Pymes:</l3> Los roles del Fundador - Gerente General</label></td>
+	<tr>
+        <td class="tdTexto"><label>Planificación en empresas de familia</label></td>
         <?php
             if ($id_Inscripto != NULL) {
-                if ($actividad6 == 't') {
-                    echo '<td class="tdCampos"><input type="checkbox" name="actividad6" checked/></td>';
+                if ($actividad9 == 't') {
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad9" checked/></td>';
                 }else{
-                    echo '<td class="tdCampos"><input type="checkbox" name="actividad6"/></td>';
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad9"/></td>';
                 }
             }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad6" checked/></td>';
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad9" checked/></td>';
             }
         ?>
     </tr>
@@ -297,16 +297,16 @@ $verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
         ?>
     </tr>
     <tr>
-        <td class="tdTexto"><label>Planificación en empresas de familia</label></td>
+        <td class="tdTexto"><label><l3>Crecimiento, Delegaci&oacute;n y direcci&oacute;n en las Pymes:</l3> Los roles del Fundador - Gerente General</label></td>
         <?php
             if ($id_Inscripto != NULL) {
-                if ($actividad9 == 't') {
-                    echo '<td class="tdCampos"><input type="checkbox" name="actividad9" checked/></td>';
+                if ($actividad6 == 't') {
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad6" checked/></td>';
                 }else{
-                    echo '<td class="tdCampos"><input type="checkbox" name="actividad9"/></td>';
+                    echo '<td class="tdCampos"><input type="checkbox" name="actividad6"/></td>';
                 }
             }else{
-                echo '<td class="tdCampos"><input type="checkbox" name="actividad9" checked/></td>';
+                echo '<td class="tdCampos"><input type="checkbox" name="actividad6" checked/></td>';
             }
         ?>
     </tr>
