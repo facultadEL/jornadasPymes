@@ -1,0 +1,1 @@
+ALTER TABLE inscripto ADD COLUMN impreso boolean DEFAULT FALSE;
