@@ -185,7 +185,7 @@ $verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
     	<td colspan="2" class="tdSubTitulo"><l2>Desmarque a las actividades que no asistir&aacute;</l2></td>
     </tr> -->
     <tr>
-        <td class="tdTexto"><label>Escenario actual de las Pymes</label> - Dr. Jos&eacute; Mar&iacute;a Rodriguez. Docente UNC y Consultor</td>
+        <td class="tdTexto"><label>Escenario actual de las Pymes</label><font size="2"> - Dr. Jos&eacute; Mar&iacute;a Rodriguez</font></td>
         <?php
             if ($id_Inscripto != NULL) {
                 if ($actividad1 == 't') {
@@ -199,7 +199,7 @@ $verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
         ?>
     </tr>
     <tr>
-        <td class="tdTexto"><label><l3>Rentabilidad de las pymes:</l3> el secreto no pasa por hacer más sino hacer lo correcto</label> - Dr. Juan Carlos Valda. Director de "Grandes Pymes"</td>
+        <td class="tdTexto"><label><l3>Rentabilidad de las pymes:</l3> el secreto no pasa por hacer más sino hacer lo correcto</label><font size="2"> - Dr. Juan Carlos Valda</font></td>
         <?php
             if ($id_Inscripto != NULL) {
                 if ($actividad2 == 't') {
@@ -227,7 +227,7 @@ $verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
         ?>
     </tr>
     <tr>
-        <td class="tdTexto"><label><l3>De Villa María al Mundo:</l3> Como armar una red de representantes comerciales</label> - Lic. Alicia Verna. Directora de AV Consultores Pymes</td>
+        <td class="tdTexto"><label><l3>De Villa María al Mundo:</l3> Como armar una red de representantes comerciales</label><font size="2"> - Lic. Alicia Verna</font></td>
         <?php
             if ($id_Inscripto != NULL) {
                 if ($actividad4 == 't') {
@@ -241,7 +241,7 @@ $verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
         ?>
     </tr>
     <tr>
-        <td class="tdTexto"><label><l3>De la idea al negocio:</l3> Como crear las condiciones para que tu idea termine en una Pyme</label> - Ing. Iris Gasta&ntilde;aga. PMP, Presidente de Kinetic S.A.</td>
+        <td class="tdTexto"><label><l3>De la idea al negocio:</l3> Como crear las condiciones para que tu idea termine en una Pyme</label><font size="2"> - Ing. Iris Gasta&ntilde;aga</font></td>
         <?php
             if ($id_Inscripto != NULL) {
                 if ($actividad5 == 't') {
@@ -255,7 +255,7 @@ $verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
         ?>
     </tr>
 	<tr>
-        <td class="tdTexto"><label>Planificación en empresas de familia</label> - Dr. Leonardo J. Glikin</td>
+        <td class="tdTexto"><label>Planificación en empresas de familia</label><font size="2"> - Dr. Leonardo J. Glikin</font></td>
         <?php
             if ($id_Inscripto != NULL) {
                 if ($actividad9 == 't') {
@@ -269,7 +269,7 @@ $verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
         ?>
     </tr>
     <tr>
-        <td class="tdTexto"><label><l3>Como emprender con &eacute;xito en la Argentina. Cadena de valor</label> - Cr. Dar&iacute;o Poncio. Director de Poncio Consultores y Asociados</td>
+        <td class="tdTexto"><label><l3>Como emprender con &eacute;xito en la Argentina. Cadena de valor</label><font size="2"> - Cr. Dar&iacute;o Poncio</font></td>
         <?php
             if ($id_Inscripto != NULL) {
                 if ($actividad7 == 't') {
@@ -297,7 +297,7 @@ $verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
         ?>
     </tr>
     <tr>
-        <td class="tdTexto"><label><l3>Crecimiento, Delegaci&oacute;n y direcci&oacute;n en las Pymes:</l3> Los roles del Fundador - Gerente General</label> - Dr. Atilio Penna. Director de Atilio Penna y Asociados</td>
+        <td class="tdTexto"><label><l3>Crecimiento, Delegaci&oacute;n y direcci&oacute;n en las Pymes:</l3> Los roles del Fundador - Gerente General</label><font size="2"> - Dr. Atilio Penna</font></td>
         <?php
             if ($id_Inscripto != NULL) {
                 if ($actividad6 == 't') {
@@ -311,7 +311,7 @@ $verificarDNI=pg_query("SELECT mail,nrodni FROM inscripto;");
         ?>
     </tr>
     <tr>
-        <td class="tdTexto"><label>Lanzando nuestra Pyme al mundo Digital</label> - Lic. Marcelo Moreno. Director de Iprocom, Docente UNC y Lic. Mariana Mart&iacute;nez Garayoa</td>
+        <td class="tdTexto"><label>Lanzando nuestra Pyme al mundo Digital</label><font size="2"> - Lic. Marcelo Moreno y Lic. Mariana Mart&iacute;nez Garayoa</font></td>
         <?php
             if ($id_Inscripto != NULL) {
                 if ($actividad10 == 't') {
