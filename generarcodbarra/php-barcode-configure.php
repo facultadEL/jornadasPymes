@@ -12,7 +12,7 @@ define(encoding,"EAN");
 define(barcodeTransparent,"false");
 
 // Altura de la imagen en pixeles
-define(barcodeHeight,50);
+define(barcodeHeight,40);
 
 // Se debe mostrar la cadena numerica en el codigo?
 define(showNumbersInBarCode,"true");

@@ -33,15 +33,15 @@ include_once "libreria.php";
 			while($rowInscripto = pg_fetch_array($sql))
 			{
 				echo '<tr>';
-				echo '<td><l2>'.$rowInscripto['apellido'].', '.$rowInscripto['nombre'].'</l2></td>';
+				echo '<td><l2>'.$rowInscripto['apellido'].', '.$rowInscripto['nombre'].'</l2></t023916005528267515d>';
 				echo '<td><l2>'.$rowInscripto['nrodni'].'</l2></td>';
 				$id = $rowInscripto['id'];
-				if(strlen($id) < 4)
+				if(strlen($id) <= 4)
 				{
 					do
 					{
 						$id = '0'.$id;
-					}while(strlen($id) < 4);
+					}while(strlen($id) <= 4);
 				}
 				$code = $id;
 				for($i=1; $i <= 7; $i++)

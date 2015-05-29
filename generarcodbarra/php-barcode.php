@@ -16,10 +16,10 @@ function barcode_outimage($text, $bars, $scale=1, $mode , $total_y=0, $space = '
  if ($total_y < 1)
   $total_y = (int)$scale * barcodeHeight;
  if(!$space)
-  $space=array('top'   => 2 * $scale,
-               'bottom'=> 2 * $scale,
-               'left'  => 2 * $scale,
-               'right' => 2 * $scale);
+  $space=array('top'   => 1 * $scale,
+               'bottom'=> 1 * $scale,
+               'left'  => 1 * $scale,
+               'right' => 1 * $scale);
 
  $xpos=0;
  $width=true;
