@@ -3,7 +3,7 @@
 
 CREATE TABLE asistencia(
   id serial NOT NULL primary key,
-  id_inscripto integer NOT NULL,
+  id_inscripto integer NOT NULL references inscripto(id),
   actividad1 boolean default false,
   actividad2 boolean default false,
   actividad3 boolean default false,

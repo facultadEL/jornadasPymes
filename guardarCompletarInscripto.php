@@ -69,6 +69,8 @@ else
 $sqlUpdateInscripto .= " WHERE id=$idInscripto;";
 //echo $sqlUpdateInscripto;
 
+$sqlUpdateInscripto .= "INSERT INTO asistencia(id_inscripto) VALUES('$idInscripto');";
+
 $error = guardarSql($sqlUpdateInscripto);
 
 if($error == 1)

@@ -27,6 +27,7 @@ $minutos = date("i");
 $sep = '/--/';
 
 //Horas charlas en un array y en un array en la misma posicion el id
+//$charla[0] = "1/--/30/--/0930/--/1625";
 $charla[0] = "1/--/03/--/1545/--/1625";
 $charla[1] = "2/--/03/--/1625/--/1705";
 $charla[2] = "3/--/03/--/1735/--/1835";
@@ -59,11 +60,11 @@ if($idCharla != 0)
 {
 	$nombreActividad = 	"actividad".$idCharla;
 	$sql = "UPDATE asistencia SET ".$nombreActividad."='true' WHERE id_inscripto=$idInscripto;";
-	//$error = guardarSql($sql);
-	echo $sql;
+	$error = guardarSql($sql);
+	//echo $sql;
 }
 
-//echo '<script language="JavaScript"> window.location = "asistencia.php";</script>';
+echo '<script language="JavaScript"> window.location = "asistencia.php";</script>';
 //echo $dia, $hora.':'.$minutos;
 
 ?>
