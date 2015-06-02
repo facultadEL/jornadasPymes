@@ -11,7 +11,7 @@
 <?php
 include_once "conexion.php";
 include_once "libreria.php";
-
+pg_query('TRUNCATE TABLE impresiontemp');
 ?>
 <div id="lista1">
 	<table id="tabla1" align="center">

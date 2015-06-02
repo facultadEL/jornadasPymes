@@ -6,7 +6,7 @@
     Impresi&oacute;n
 </title>
 </head>
-<body onload="print();window.location = 'confirmarImpresion.php';">
+<body onload="print();window.location = 'controlImpresion.php';">
 <style>
 body{
 
