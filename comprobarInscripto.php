@@ -26,7 +26,7 @@ $cantidad = $rowConsultaDni['total'];
 		}
 	}else
 	{
-		echo '<script language="JavaScript">alert("El inscripto no se encuentra registrado"); window.location = "validarInscripto.php";</script>';
+		echo '<script language="JavaScript">alert("El inscripto no se encuentra registrado"); window.location = "validarCertificado.php";</script>';
 	}
 
 ?>
