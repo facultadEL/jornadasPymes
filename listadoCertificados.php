@@ -64,7 +64,7 @@ $charla[9] = "10/--/Lanzando nuestra Pyme al mundo Digital/--/04/06/2015";
 				{
 					echo '<tr>';
 					echo '<td><l2>'.$vCharla[1].'</l2></td>';
-					echo '<td><l2>'.$vCharla[2].'</l2></td>';
+					echo '<td align="center"><l2>'.$vCharla[2].'</l2></td>';
 					$id_certificado = $vCharla[0];
 					echo '<td align="center"><a href="imprimirCertificado.php?id='.$id_inscripto.'&nroCert='.$id_certificado.'"><input type="button" id="btn_verincs" value="Imprimir" title="Imprimir certificado" alt="ver"></a></td>';
 					echo '</tr>';	

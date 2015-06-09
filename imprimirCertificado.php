@@ -16,75 +16,123 @@ font-size: 15px;
 
 .divCertificado
 {
-	height: 2480px;
-	height: 3508px;
-	background-image: "img/cert.jpg";
-	background-repeat: no-repeat;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 208mm;
+	width: 295mm;
+	background-image: url("img/certificado.jpg");
 	background-size: 100% 100%;
+	text-align: justify;
+}
+
+#textInCert
+{
+	position: inherit;
+  	top: 310px;
+  	width: 80%;
+  	left: 115px;
+  	font-family: Arial, Helvetica;
+  	font-size: 20px;
+	line-height: 40px;
 }
 </style>
-<table width="100%" left="0px" top="0px" cellpadding="12px" cellspacing="0px">
 <?php
 include_once "conexion.php";
 include_once "libreria.php";
 
 $id_inscripto = $_REQUEST['id'];
 $nroCert = $_REQUEST['nroCert'];
-$sqlImprimir = traerSqlCondicion('*','inscripto',"asistio='true' and impreso='false'");
+$condicion = 'id='.$id_inscripto;
 
-while($rowImprimir = pg_fetch_array($sqlImprimir))
+$sqlImprimir = traerSqlCondicion('*','inscripto',$condicion);
+
+$rowImprimir = pg_fetch_array($sqlImprimir);
+
+$nombre = $rowImprimir['nombre'];
+$apellido = $rowImprimir['apellido'];
+
+$dniToFormat = $rowImprimir['nrodni'];
+if(strlen($dniToFormat) == 7)
 {
-	$id = $rowImprimir['id'];
-	$sqlInscTemp .= "INSERT INTO impresiontemp(id_inscripto) values($id);";
-	$cant++;
-	if($cant==1)
-	{
-		echo '<tr width="100%" align="center" >';
-	}
-
-		echo '<td width="33%" align="center">';
-		echo $rowImprimir['apellido'].', '.$rowImprimir['nombre'];
-		echo '<br>';
-		$id = $rowImprimir['id'];
-		if(strlen($id) <= 4)
-		{
-			do
-			{
-				$id = '0'.$id;
-			}while(strlen($id) <= 4);
-		}
-		$code = $id;
-		for($i=1; $i <= 7; $i++)
-		{
-			$code .= rand(0,9);
-		}
-		$code .= '1';
-		echo '<img src="generarcodbarra/barcode.php?code='.$code.'&scale=1" />';
-		//echo '<img src="img/codigoBarraPrueba.png" />';
-		echo '</td>';
-
-	if($cant==3)
-	{
-		echo '</tr>';
-		$cant = 0;
-		$entraron++;
-	}
+	$dni = $dniToFormat[0].'.'.$dniToFormat[1].$dniToFormat[2].$dniToFormat[3].'.'.$dniToFormat[4].$dniToFormat[5].$dniToFormat[6];
+}
+else if(strlen($dniToFormat) == 8)
+{
+	$dni = $dniToFormat[0].$dniToFormat[1].'.'.$dniToFormat[2].$dniToFormat[3].$dniToFormat[4].'.'.$dniToFormat[5].$dniToFormat[6].$dniToFormat[7];	
+}
+else if(strlen($dniToFormat) == 9)
+{
+	$dni = $dniToFormat[0].$dniToFormat[1].$dniToFormat[2].'.'.$dniToFormat[3].$dniToFormat[4].$dniToFormat[5].'.'.$dniToFormat[6].$dniToFormat[7].$dniToFormat[8];	
 }
 
-$error = guardarSql($sqlInscTemp);
+switch ($nroCert) {
+	case '1':
+		$nombreCharla = 'Escenario actual de las Pymes';
+		$fechaCharla = '03 de Junio de 2015';
+		$nroRes = '192';
+		break;
+	case '2':
+		$nombreCharla = 'Rentabilidad de las pymes: el secreto no pasa por hacer más sino hacer lo correcto';
+		$fechaCharla = '03 de Junio de 2015';
+		$nroRes = '193';
+		break;
+	case '3':
+		$nombreCharla = 'Taller de Experiencias Casos Exitosos UTN';
+		$fechaCharla = '03 de Junio de 2015';
+		$nroRes = '202';
+		break;
+	case '4':
+		$nombreCharla = 'De Villa María al Mundo: Como armar una red de representantes comerciales';
+		$fechaCharla = '03 de Junio de 2015';
+		$nroRes = '194';
+		break;
+	case '5':
+		$nombreCharla = 'De la idea al negocio: Como crear las condiciones para que tu idea termine en una Pyme';
+		$fechaCharla = '03 de Junio de 2015';
+		$nroRes = '195';
+		break;
+	case '9':
+		$nombreCharla = 'Planificación en empresas de familia';
+		$fechaCharla = '04 de Junio de 2015';
+		$nroRes = '196';
+		break;
+	case '11':
+		$nombreCharla = 'Innovaci&oacute;n/Vinculaci&oacute;n';
+		$fechaCharla = '04 de Junio de 2015';
+		$nroRes = '197';
+		break;
+	case '7':
+		$nombreCharla = 'Como emprender con &eacute;xito en la Argentina. Cadena de valor';
+		$fechaCharla = '04 de Junio de 2015';
+		$nroRes = '198';
+		break;
+	case '8':
+		$nombreCharla = 'Taller Programa de Financiamiento y Creditos para Pymes';
+		$fechaCharla = '04 de Junio de 2015';
+		$nroRes = '203';
+		break;
+	case '6':
+		$nombreCharla = 'Crecimiento, Delegaci&oacute;n y direcci&oacute;n en las Pymes: Los roles del Fundador - Gerente General';
+		$fechaCharla = '04 de Junio de 2015';
+		$nroRes = '199';
+		break;
+	case '10':
+		$nombreCharla = 'Lanzando nuestra Pyme al mundo Digital';
+		$fechaCharla = '04 de Junio de 2015';
+		$nroRes = '200';
+		break;
+}
 
-do
-{
-	$entraron++;
-	echo '<tr width="100%">';
-		echo '<td colspan="3">';
-		echo '</td>';
-	echo '</tr>';
-
-
-}while($entraron < 11);
+$textToShow = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Por cuanto <font size="5"><b>'.$nombre.' '.$apellido.'</b></font>, DNI N°: '.$dni.' ha asistido al seminario de capacitaci&oacute;n en <font size="5"><b>"'.$nombreCharla.'"</b></font> autorizado por Resoluci&oacute;n N° '.$nroRes.'/15 de fecha '.$fechaCharla.', llevado a cabo en <b>la Segunda Jornada para Pymes de la UTN</b> en Universidad Tecnol&oacute;gica Nacional - Facultad Regional Villa Mar&iacute;a, se le otorga el presente certificado.';
+//echo $textToShow;
 ?>
 <div class="divCertificado">
+<span id="textInCert">
+<?php
+echo $textToShow;
+?>
+</span>
 </div>
 </body>
 </html>
