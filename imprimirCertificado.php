@@ -19,7 +19,7 @@ font-size: 15px;
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	height: 208mm;
+	height: 207mm;
 	width: 295mm;
 	background-image: url("img/certificado.jpg");
 	background-size: 100% 100%;
@@ -35,6 +35,25 @@ font-size: 15px;
   	font-family: Arial, Helvetica;
   	font-size: 20px;
 	line-height: 40px;
+}
+
+#firmaHuber
+{
+	position: inherit;
+ 	top: 550px;
+ 	left: 200px;
+  	text-align: center;
+  	font-family: Arial, Helvetica;
+  	font-size: 14px;
+}
+#firmaDecano
+{
+	position: inherit;
+ 	top: 550px;
+ 	left: 750px;
+  	text-align: center;
+  	font-family: Arial, Helvetica;
+  	font-size: 14px;
 }
 
 #divFirmas
@@ -181,6 +200,18 @@ $fechaActual = 'Villa Mar&iacute;a, '.date('d').' de '.$mes.' de '.date('Y');
 echo $textToShow;
 ?>
 </span>
+<div id="firmaHuber">
+	<img src="img/firmaHuber.png" height="115px" width="115px" />
+	<br/>
+	<i>Ing. Huber Fernandez</i><br/>
+	Secretaria de Extensi&oacute;n
+</div>
+<div id="firmaDecano">
+	<img src="img/firmaRosso.png" height="115px" width="130px" />
+	<br/>
+	<i>Ing. Pablo A. Rosso</i><br/>
+	Decano
+</div>
 <div id="textFechaActual">
 <?php
 echo $fechaActual
