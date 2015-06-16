@@ -28,16 +28,23 @@ $charla[9] = "10/--/Lanzando nuestra Pyme al mundo Digital/--/04/06/2015";
 		<tr>  
 	        <td colspan="2" id="tdTitulo"><strong>Certificados por descargar</strong></td>
 	    </tr>
+	    <tr>  
+	        <td colspan="2" id="tdTitulo"><font size="3" color="black"><i>Si necesitas validar tu certificado o tenes alg&uacute;n problema comunicate con nosotros a s_extension@frvm.utn.edu.ar o llamanos al 0353 4537500 int. 124 o 125</i></font></td>
+	    </tr>
+	    <tr align="center">  
+	    <?php
+	        echo '<td colspan="2" id="tdTitulo2" align="center"><a href="descargarCertificado.php?id='.$id_inscripto.'" target="_blank"><input type="button" id="btn_verincs" value="Descargar" title="Descargar Certificados" alt="ver"></a></td>';
+	    ?>
+	    </tr>
 	</table>
 	<table id="lista" align="center">
 		<tr>
 		<td class="td_titcol" width="70%">Charla</td>
 		<td class="td_titcol" width="15%">Fecha</td>
-		<td class="td_titcol" width="15%">Imprimir</td>
 		</tr>
 		<?php
-			$condicion = "asistio='true' and id_inscripto=".$id_inscripto." LIMIT 1";
-			$sql = traerSql('*','inscripto');
+			$condicion = "asistio='true' and id=".$id_inscripto." LIMIT 1";
+			$sql = traerSqlCondicion('*','inscripto',$condicion);
 			//$sql = traerSqlCondicion('asistencia.*','inscripto INNER JOIN asistencia ON(asistencia.id_inscripto = inscripto.id)',$condicion);
 			$rowSql = pg_fetch_array($sql);
 			//echo $rowSql['fechainscripto'];
@@ -65,12 +72,13 @@ $charla[9] = "10/--/Lanzando nuestra Pyme al mundo Digital/--/04/06/2015";
 					echo '<tr>';
 					echo '<td><l2>'.$vCharla[1].'</l2></td>';
 					echo '<td align="center"><l2>'.$vCharla[2].'</l2></td>';
-					$id_certificado = $vCharla[0];
-					echo '<td align="center"><a href="imprimirCertificado.php?id='.$id_inscripto.'&nroCert='.$id_certificado.'"><input type="button" id="btn_verincs" value="Imprimir" title="Imprimir certificado" alt="ver"></a></td>';
 					echo '</tr>';	
 				}
 			}
 		?>
+		<tr>
+		<td><l2>Innovaci&oacute;n/Vinculaci&oacute;n</l2></td>
+		<td align="center"><l2>04/06/2015</l2></td>
 	</table>
 </div>
 </body>

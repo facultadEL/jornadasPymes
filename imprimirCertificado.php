@@ -104,11 +104,11 @@ else if(strlen($dniToFormat) == 9)
 
 switch ($nroCert) {
 	case '1':
-		$nombreCharla = 'Escenario actual de las Pymes';
+		$nombreCharla = 'Escenario Actual de las Pymes';
 		$nroRes = '192';
 		break;
 	case '2':
-		$nombreCharla = 'Rentabilidad de las pymes: el secreto no pasa por hacer más sino hacer lo correcto';
+		$nombreCharla = 'Rentabilidad de las Pymes: El Secreto No Pasa Por Hacer Más Sino Hacer Lo Correcto';
 		$nroRes = '193';
 		break;
 	case '3':
@@ -116,15 +116,15 @@ switch ($nroCert) {
 		$nroRes = '202';
 		break;
 	case '4':
-		$nombreCharla = 'De Villa María al Mundo: Como armar una red de representantes comerciales';
+		$nombreCharla = 'De Villa María al Mundo: Como Armar Una Red de Representantes Comerciales';
 		$nroRes = '194';
 		break;
 	case '5':
-		$nombreCharla = 'De la idea al negocio: Como crear las condiciones para que tu idea termine en una Pyme';
+		$nombreCharla = 'De la Idea al Negocio: Como Crear las Condiciones Para que Tu Idea Termine en Una Pyme';
 		$nroRes = '195';
 		break;
 	case '9':
-		$nombreCharla = 'Planificación en empresas de familia';
+		$nombreCharla = 'Planificación en Empresas de Familia';
 		$nroRes = '196';
 		break;
 	case '11':
@@ -132,24 +132,24 @@ switch ($nroCert) {
 		$nroRes = '197';
 		break;
 	case '7':
-		$nombreCharla = 'Como emprender con &eacute;xito en la Argentina. Cadena de valor';
+		$nombreCharla = 'Como Emprender Con &Eacute;xito en la Argentina. Cadena de Valor';
 		$nroRes = '198';
 		break;
 	case '8':
-		$nombreCharla = 'Taller Programa de Financiamiento y Creditos para Pymes';
+		$nombreCharla = 'Taller Programa de Financiamiento y Creditos Para Pymes';
 		$nroRes = '203';
 		break;
 	case '6':
-		$nombreCharla = 'Crecimiento, Delegaci&oacute;n y direcci&oacute;n en las Pymes: Los roles del Fundador - Gerente General';
+		$nombreCharla = 'Crecimiento, Delegaci&oacute;n y Direcci&oacute;n en las Pymes: Los Roles del Fundador - Gerente General';
 		$nroRes = '199';
 		break;
 	case '10':
-		$nombreCharla = 'Lanzando nuestra Pyme al mundo Digital';
+		$nombreCharla = 'Lanzando Nuestra Pyme al Mundo Digital';
 		$nroRes = '200';
 		break;
 }
 $fechaCharla = '02 de Junio de 2015';
-$textToShow = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Por cuanto <font size="5"><b>'.$nombre.' '.$apellido.'</b></font>, DNI N°: <font size="5"><b>'.$dni.'</b></font> ha asistido al seminario de capacitaci&oacute;n en <font size="5"><b>"'.$nombreCharla.'"</b></font> autorizado por Resoluci&oacute;n N° '.$nroRes.'/15 de fecha '.$fechaCharla.', llevado a cabo en la <b>Segunda Jornadas Nacionales para PYMES de la UTN</b> en Universidad Tecnol&oacute;gica Nacional - Facultad Regional Villa Mar&iacute;a, se le otorga el presente certificado.';
+$textToShow = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Por cuanto <font size="5"><b>'.$nombre.' '.$apellido.'</b></font>, DNI N°: <font size="5"><b>'.$dni.'</b></font> ha asistido al seminario de capacitaci&oacute;n en <font size="5"><b>"'.$nombreCharla.'"</b></font> autorizado por Resoluci&oacute;n N° '.$nroRes.'/15 de fecha '.$fechaCharla.', llevado a cabo en la <b>Segunda Jornadas Nacionales para PYMES de la UTN</b> en Universidad Tecnol&oacute;gica Nacional - Facultad Regional Villa Mar&iacute;a los d&iacute;as 3 y 4 de Junio de 2015, se le otorga el presente certificado.';
 //echo $textToShow;
 
 switch (date('m')) {
